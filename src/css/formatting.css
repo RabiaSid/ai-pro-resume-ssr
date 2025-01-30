@@ -1,0 +1,71 @@
+#header_resume,
+#summary_resume,
+#experience_resume {
+  display: none;
+}
+
+/* font size 1 */
+.cover_fontsize1 .heading {
+  font-size: 30px;
+}
+
+.cover_fontsize1 .sub_heading {
+  font-size: 13px;
+}
+
+.cover_fontsize1 p,
+.cover_fontsize1 span {
+  font-size: 12px;
+}
+
+/* font size 2 */
+.cover_fontsize2 .heading {
+  font-size: 32px;
+}
+
+.cover_fontsize2 .sub_heading {
+  font-size: 14px;
+}
+
+.cover_fontsize2 p,
+.cover_fontsize2 span {
+  font-size: 14px;
+}
+
+/* font size 2 */
+.cover_fontsize3 .heading {
+  font-size: 33px;
+}
+
+.cover_fontsize3 .sub_heading {
+  font-size: 15px;
+}
+
+.cover_fontsize3 p,
+.cover_fontsize3 span {
+  font-size: 15px;
+}
+
+/* Side Nav Css Formatting Screen */
+.sideNavFormatting {
+  transition: 0.5s;
+}
+.showSideNav {
+  right: 0;
+}
+
+.hideSideNav {
+  right: -100%;
+}
+
+@media (max-width: 768px) {
+  .resume-container {
+    transform: scale(0.75); /* Adjust the scale value as needed */
+    transform-origin: top left; /* Adjust the origin as needed */
+    width: 100%;
+  }
+
+  .resume-preview {
+    width: 135%;
+  }
+}

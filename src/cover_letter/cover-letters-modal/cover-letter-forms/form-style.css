@@ -1,0 +1,12 @@
+.phone-styling{
+    border-radius: 4px!important;
+    border: 1px solid #474747;
+    padding: 12px;
+}
+.PhoneInputInput::placeholder{
+    color: #6e6e6e!important;
+    font-family: Lexend!important;
+    font-size: 16px!important;
+    font-style: normal;
+    font-weight: 300;
+}

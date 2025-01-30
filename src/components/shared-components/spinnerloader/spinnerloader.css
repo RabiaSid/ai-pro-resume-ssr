@@ -1,0 +1,51 @@
+.spinner {
+    position: relative;
+    width: 43.2px;
+    height: 43.2px;
+    perspective: 86.4px;
+ }
+ 
+ .spinner div {
+    width: 100%;
+    height: 100%;
+    background: #0072b1;
+    position: absolute;
+    left: 50%;
+    transform-origin: left;
+    animation: spinner-16s03x 2.4s infinite;
+ }
+ 
+ .spinner div:nth-child(1) {
+    animation-delay: 0.18s;
+ }
+ 
+ .spinner div:nth-child(2) {
+    animation-delay: 0.36s;
+ }
+ 
+ .spinner div:nth-child(3) {
+    animation-delay: 0.54s;
+ }
+ 
+ .spinner div:nth-child(4) {
+    animation-delay: 0.72s;
+ }
+ 
+ .spinner div:nth-child(5) {
+    animation-delay: 0.8999999999999999s;
+ }
+ 
+ @keyframes spinner-16s03x {
+    0% {
+       transform: rotateY(0deg);
+    }
+ 
+    50%, 80% {
+       transform: rotateY(-180deg);
+    }
+ 
+    90%, 100% {
+       opacity: 0;
+       transform: rotateY(-180deg);
+    }
+ }
