@@ -135,7 +135,7 @@ const SideBar = ({ sideBarStatus }) => {
       role: "example-section-list",
       subNavExample: [
         {
-          link: "job_position",
+          link: "job-position",
           text: "JOB POSITIONS",
           role: "job-position-list",
         },

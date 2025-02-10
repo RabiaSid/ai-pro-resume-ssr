@@ -21,10 +21,14 @@ const Link = Quill.import("formats/link");
 class CustomLink extends Link {
   static create(value) {
     let node = super.create(value);
-    if (isExternal(value)) {
-      node.setAttribute("rel", "nofollow");
-    } else {
-      node.setAttribute("rel", "dofollow");
+    // if (isExternal(value)) {
+    //   node.setAttribute("rel", "nofollow");
+    // } else {
+    //   node.setAttribute("rel", "dofollow");
+    // }
+    // return node;
+    if (value.rel) {
+      node.setAttribute("rel", value.rel);
     }
     return node;
   }

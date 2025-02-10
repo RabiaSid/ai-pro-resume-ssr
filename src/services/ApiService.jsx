@@ -4229,12 +4229,8 @@ export const ApiService = {
       Authorization: "Bearer " + token,
     };
 
-    // console.log("api service array", arr.toString(","));
-
     const formData = new FormData();
-
-    formData.append("name", arr.join(", "));
-
+    formData.append("name", arr.toString());
     formData.append("job_position_id", id);
     formData.append("is_example", isExample);
 
@@ -4280,17 +4276,11 @@ export const ApiService = {
     const headers = {
       Authorization: "Bearer " + token,
     };
-    // console.log("api service array", arr.toString(","));
 
     const formData = new FormData();
-
-    formData.append("name", arr.join(", "));
-
+    formData.append("name", arr.toString());
     formData.append("job_position_id", id);
     formData.append("is_example", isExample);
-    for (const [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
-    }
 
     return axiosInstance.post(endPoints.tech_skills, formData, { headers });
   },

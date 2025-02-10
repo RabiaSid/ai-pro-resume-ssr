@@ -27,9 +27,11 @@ const CreateSoft_Skills = () => {
 
   const handleCreateSoftSkills = (data) => {
     const arr = [];
-    // console.log("array", arr);
+
     const selectedData = data.data.filter((item) => item.isSelected);
     selectedData.map((d) => arr.push(d.name));
+
+
     setIsloading(true);
     ApiService.createSoftSkills(
       user?.token,
@@ -82,7 +84,6 @@ const CreateSoft_Skills = () => {
   useEffect(() => {
     ApiService.getAllJobPositions(user?.token)
       .then((res) => {
-        // console.log(res.data.data);
         set_job_positions(res.data.data);
       })
       .catch((err) => {
@@ -105,7 +106,7 @@ const CreateSoft_Skills = () => {
           },
         }
       );
-      // console.log("API Response:", response.data.data.soft_Skills);
+
       set_soft_skills(response.data.data.soft_Skills);
 
       setIsloading(false);

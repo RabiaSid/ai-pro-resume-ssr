@@ -270,8 +270,8 @@ const Create_Resume_Examples = ({ children }) => {
                     isPending
                       ? "pending"
                       : isActive
-                        ? "bg-primary text-white p-4"
-                        : "p-4"
+                      ? "bg-primary text-white p-4"
+                      : "p-4"
                   }
                 >
                   Header
@@ -283,8 +283,8 @@ const Create_Resume_Examples = ({ children }) => {
                     isPending
                       ? "pending"
                       : isActive
-                        ? "bg-primary text-white p-4"
-                        : "p-4"
+                      ? "bg-primary text-white p-4"
+                      : "p-4"
                   }
                 >
                   Others

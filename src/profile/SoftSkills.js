@@ -22,7 +22,10 @@ function Summary({ data, reload }) {
       skills: data ? data : "",
     },
   });
+
   useEffect(() => {
+    console.log("data.body: ", data.body);
+
     setValue("skills", data?.body ? data?.body.split(",,") : []);
     setValue("skill_id", data ? data.id : "");
     ApiService.showResumeTechnicalSkills(user?.token)
@@ -69,7 +72,7 @@ function Summary({ data, reload }) {
 
   const uniqueSkillsOptions = Array.from(
     new Set(technicalSkillsOptions?.map((option) => option.name || ""))
-  ).filter((name) => name); // Remove empty or undefined names
+  ).filter((name) => name);
 
   return (
     <div className="mt-4 font-Lexend">
@@ -137,17 +140,15 @@ function Summary({ data, reload }) {
                 <Autocomplete
                   {...field}
                   multiple
-                  options={uniqueSkillsOptions} // Use only names as options
-                  freeSolo // Allow users to type and add new skills
+                  options={uniqueSkillsOptions}
+                  freeSolo
                   filterSelectedOptions
                   onChange={(event, newValue) => {
                     field.onChange(newValue);
-                    //updateSkills(newValue);
                   }}
                   onBlur={() => document.getElementById("submitSkills").click()}
                   value={field.value || []}
                   disablePortal
-                  //sx={{ height: "80px" }}
                   renderInput={(params) => (
                     <TextField
                       {...params}

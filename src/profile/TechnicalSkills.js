@@ -8,7 +8,7 @@ import { TbLoader3 } from "react-icons/tb";
 import { RxCrossCircled } from "react-icons/rx";
 import { IoInformationCircle } from "react-icons/io5";
 
-function Summary({ data, reload }) {
+function Summary({ data, reload, userJobPosition }) {
   const { user } = useAuth();
   const {
     formState: { errors },
@@ -24,62 +24,92 @@ function Summary({ data, reload }) {
   });
   const [job_positions, set_job_positions] = useState([]);
   const [job_search, set_job_search] = useState("");
+
   useEffect(() => {
     setValue("skills", data?.body ? data?.body.split(",,") : []);
     setValue("skill_id", data ? data.id : "");
+    setValue("job_title", userJobPosition);
   }, [data, setValue]);
 
   const timeoutRef = useRef(null);
   useEffect(() => {
-    if (job_search) {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current); // Clear the previous timeout
-      }
+    // if (job_search) {
+    //   // console.log("job_search: ", job_search);
+    //   if (timeoutRef.current) {
+    //     clearTimeout(timeoutRef.current); // Clear the previous timeout
+    //   }
 
-      const job = job_positions.find(
-        (job) => job.name.toLowerCase() === job_search.toLowerCase()
-      );
+    //   const job = job_positions.find(
+    //     (job) => job.name.toLowerCase() === job_search.toLowerCase()
+    //   );
 
-      if (job) {
-        // Set new timeout
-        timeoutRef.current = setTimeout(() => {
-          ApiService.showResumeTechnicalSkillsFilter(user?.token, job_search)
-            .then((res) => {
-              setTechnicalSkillsOptions([]);
-              if (res.data?.data[0]?.tech_skills.length === 0) {
-                // gen ai
-                ApiService.ai_createTechSkills_suggestion(job_search)
-                  .then((res) => {
-                    setTechnicalSkillsOptions(res.data?.data?.technical_Skills);
-                    if (res.data?.data?.technical_Skills?.length > 0) {
-                      ApiService.createTechSkills(
-                        user?.token,
-                        res.data.data.technical_Skills,
-                        job.id,
-                        0
-                      )
-                        .then((res) => console.log("Craete:", res))
-                        .catch((err) => console.log(err));
-                    }
-                  })
-                  .catch((err) => console.log(err));
-              } else {
-                const arrr = res.data.data[0]?.tech_skills?.map(
-                  (skill) => skill.name
-                );
-                setTechnicalSkillsOptions(arrr);
-              }
-            })
-            .catch((err) => console.log(err));
-        }, 2000);
-      }
-    }
+    //   // if (job) {
+    //     ApiService.showResumeTechnicalSkillsFilter(user?.token, job_search)
+    //       .then((res) => {
+    //         setTechnicalSkillsOptions([]);
+    //         if (res.data?.data[0]?.tech_skills.length === 0) {
+    //           // gen ai
+    //           ApiService.ai_createTechSkills_suggestion(job_search)
+    //             .then((res) => {
+    //               setTechnicalSkillsOptions(res.data?.data?.technical_Skills);
+    //               if (res.data?.data?.technical_Skills?.length > 0) {
+    //                 ApiService.createTechSkills(
+    //                   user?.token,
+    //                   res.data.data.technical_Skills,
+    //                   job.id,
+    //                   0
+    //                 )
+    //                   .then((res) => console.log(""))
+    //                   .catch((err) => console.log(err));
+    //               }
+    //             })
+    //             .catch((err) => console.log(err));
+    //         } else {
+    //           const arrr = res.data.data[0]?.tech_skills?.map(
+    //             (skill) => skill.name
+    //           );
+    //           setTechnicalSkillsOptions(arrr);
+    //         }
+    //       })
+    //       .catch((err) => console.log(err));
+    //   // }
+    // }
+    ApiService.showResumeTechnicalSkillsFilter(user?.token, "")
+      .then((res) => {
+        console.log("res: ", res.data.data);
+        setTechnicalSkillsOptions([]);
+        // if (res.data?.data[0]?.tech_skills.length === 0) {
+        //   // gen ai
+        //   ApiService.ai_createTechSkills_suggestion(job_search)
+        //     .then((res) => {
+        //       setTechnicalSkillsOptions(res.data?.data?.technical_Skills);
+        //       if (res.data?.data?.technical_Skills?.length > 0) {
+        //         ApiService.createTechSkills(
+        //           user?.token,
+        //           res.data.data.technical_Skills,
+        //           job.id,
+        //           0
+        //         )
+        //           .then((res) => console.log(""))
+        //           .catch((err) => console.log(err));
+        //       }
+        //     })
+        //     .catch((err) => console.log(err));
+        // } else {
+        //   const arrr = res.data.data[0]?.tech_skills?.map(
+        //     (skill) => skill.name
+        //   );
+        //   setTechnicalSkillsOptions(arrr);
+        // }
+      }) 
+      .catch((err) => console.log(err));
   }, [job_search]);
 
   useEffect(() => {
     ApiService.getAllJobPositions(user?.token)
       .then((res) => {
         set_job_positions(res.data.data);
+        // console.log("Job Positions List: ", res.data.data);
       })
       .catch((err) => console.log(err));
   }, [user?.token]);
@@ -92,12 +122,10 @@ function Summary({ data, reload }) {
   );
 
   const submitTechnicalSkills = (dataform) => {
-    console.log(dataform);
     set_loader_mode(true);
     if (data) {
       ApiService.resumeTechnicalSkillsEdit(user?.token, dataform)
         .then((res) => {
-          console.log(res);
           set_edit_mode(false);
           set_loader_mode(false);
           reload();
@@ -109,7 +137,6 @@ function Summary({ data, reload }) {
     } else {
       ApiService.resumeTechnicalSkillsAdd(user?.token, dataform)
         .then((res) => {
-          console.log(res);
           set_edit_mode(false);
           set_loader_mode(false);
           reload();

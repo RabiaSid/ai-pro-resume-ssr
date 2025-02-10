@@ -51,7 +51,7 @@ const Create_Cover_Example = ({ children }) => {
     last_name: "",
     cover_template_id: 0,
     category_id: 0,
-    preview_image: "",
+    preview_image:"",
     phone_number: 0,
     email_address: "",
     street_address: "",
@@ -59,7 +59,7 @@ const Create_Cover_Example = ({ children }) => {
     state_id: 0,
     city_id: 0,
     zip_code: 0,
-
+    
   });
 
   const [coverOpenerData, setCoverOpenerData] = useState({
@@ -126,7 +126,7 @@ const Create_Cover_Example = ({ children }) => {
     }
     // Body Data
     if (bodyData) {
-      const { job_title, employeer_name, body_skills, job_positions, body_detail } =
+      const { job_title, employeer_name, body_skills,job_positions, body_detail } =
         JSON.parse(bodyData);
       console.log(bodyData);
       setCoverBodyData((prev) => ({
@@ -210,8 +210,8 @@ const Create_Cover_Example = ({ children }) => {
                     isPending
                       ? "pending"
                       : isActive
-                        ? "bg-primary text-white p-4"
-                        : "p-4"
+                      ? "bg-primary text-white p-4"
+                      : "p-4"
                   }
                 >
                   Header
@@ -222,8 +222,8 @@ const Create_Cover_Example = ({ children }) => {
                     isPending
                       ? "pending"
                       : isActive
-                        ? "bg-primary text-white p-4"
-                        : "p-4"
+                      ? "bg-primary text-white p-4"
+                      : "p-4"
                   }
                 >
                   Opener
@@ -234,8 +234,8 @@ const Create_Cover_Example = ({ children }) => {
                     isPending
                       ? "pending"
                       : isActive
-                        ? "bg-primary text-white p-4"
-                        : "p-4"
+                      ? "bg-primary text-white p-4"
+                      : "p-4"
                   }
                 >
                   Body
@@ -246,8 +246,8 @@ const Create_Cover_Example = ({ children }) => {
                     isPending
                       ? "pending"
                       : isActive
-                        ? "bg-primary text-white p-4"
-                        : "p-4"
+                      ? "bg-primary text-white p-4"
+                      : "p-4"
                   }
                 >
                   Closer

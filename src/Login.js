@@ -541,12 +541,9 @@ function Login() {
           type="button"
           className="bg-[#0072b1] w-full mt-4 px-8 py-2 rounded-md text-white text-xl font-bold hover:bg-slate-800 ease-in transition-all mb-4 sm:mb-0"
         >
-          <a
-            href={global.localPath + "register"}
-            className="text-white  hover:white"
-          >
+          <Link to={"/register"} className="text-white  hover:white">
             CREATE ACCOUNT
-          </a>
+          </Link>
         </button>
       </div>
       <Footer />
