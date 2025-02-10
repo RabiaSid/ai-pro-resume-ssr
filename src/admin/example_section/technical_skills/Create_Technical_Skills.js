@@ -50,10 +50,12 @@ const Create_Technical_Skills = () => {
 
   const handleCreateTechSkills = (data) => {
     const arr = [];
-    console.log("array", arr);
+
     const selectedData = data.data.filter((item) => item.isSelected);
     selectedData.map((d) => arr.push(d.name));
-    
+
+    // console.log("array", arr.toString());
+
     setIsloading(true);
     ApiService.createTechSkills(user?.token, arr, selected_job, isExample)
       .then((res) => {

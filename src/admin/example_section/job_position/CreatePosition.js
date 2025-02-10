@@ -29,7 +29,7 @@ const CreateCategory = () => {
 
     try {
       const response = await axios.post(
-        "https://ai.jts.aiproresume.com/api/v1/job-title-suggestion",
+        "http://ai.jts.aiproresume.com/api/v1/job-title-suggestion",
         JSON.stringify({ job_title: jobTitle }), // Convert the data to JSON format
         {
           headers: {

@@ -904,7 +904,7 @@ const Account = () => {
                 reload={reload}
               />
 
-              <TechnicalSkillsSection data={get_tech_skills} reload={reload} />
+              <TechnicalSkillsSection userJobPosition={userDetails?.job_position} data={get_tech_skills} reload={reload} />
               <SoftSkillsSection data={get_soft_skills} reload={reload} />
 
               <div className="mt-4 font-Lexend">

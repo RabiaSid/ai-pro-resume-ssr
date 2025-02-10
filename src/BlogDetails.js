@@ -195,7 +195,7 @@ function Pages() {
               className="mb-6 w-full object-cover"
             />
             <div
-              className="content blogContent"
+              className="content blogContent mb-3"
               dangerouslySetInnerHTML={{
                 __html: single_blogs.long_description,
               }}
@@ -210,7 +210,7 @@ function Pages() {
               className="float-left mr-6 mb-6 w-1/2 lg:w-1/3 object-cover"
             />
             <div
-              className="content blogContent"
+              className="content blogContent mb-3"
               dangerouslySetInnerHTML={{
                 __html: single_blogs.long_description,
               }}

@@ -295,7 +295,7 @@ const AdminDashboard = () => {
                       </Link>
                     );
                   }
-                  return null; // If user doesn't have permission, don't render anything
+                  return null;
                 })}
               </ul>
             </div>

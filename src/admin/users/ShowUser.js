@@ -9,7 +9,9 @@ import UserResumeCover from "./UserResumeCover.js";
 import UserTransactionServices from "./UserTransactionsServices";
 import CoverLetterShow from "./CoverLetterShow";
 import TransactionUser from "./TransactionUser";
+
 const ShowUser = () => {
+
   const { user } = useAuth();
   const location = useLocation();
 
@@ -48,6 +50,7 @@ const ShowUser = () => {
           verify_code,
           personal_information,
           cover_letters,
+          referral_link,
         } = res.data.data.user;
 
         const updatedUserData = {
@@ -77,6 +80,7 @@ const ShowUser = () => {
           verify_code,
           personal_information,
           cover_letters,
+          referral_link,
         };
 
         // Update the state with the new userData object
@@ -185,8 +189,13 @@ const ShowUser = () => {
     set_cp(cp + 1);
   };
 
+
+  console.log(childs, "childschildschilds")
+  console.log(user, "useruseruser")
+  console.log(childs?.referral_link, "userData?.referral_linkuserData?.referral_link")
   const [activeTab, setActiveTab] = useState(0);
   const tabs = ["All Resumes", "All Cover Letters", "Services", "Transactions"];
+
   return (
     <>
       <div className="p-2">
@@ -199,11 +208,10 @@ const ShowUser = () => {
               <div className="flex items-start">
                 <div className="relative w-[150px] h-[150px] rounded-full border-2 mt-2">
                   <img
-                    src={`${
-                      userData.image
-                        ? global.imageUrl + userData.image
-                        : placeholderImage
-                    }`}
+                    src={`${userData.image
+                      ? global.imageUrl + userData.image
+                      : placeholderImage
+                      }`}
                     alt="user avtar"
                     className="w-full h-full rounded-full m-auto"
                   />
@@ -252,6 +260,17 @@ const ShowUser = () => {
                             <span className="text-primary">
                               {userData.job_position
                                 ? userData.job_position
+                                : "--"}
+                            </span>
+                          </div>
+                        </div>
+                        {/*referral-link */}
+                        <div>
+                          <div className="text-sm">
+                            Referral Link:{" "}
+                            <span className="text-primary">
+                              {userData?.referral_link ?
+                                `https://aiproresume.com/register/${userData?.referral_link}`
                                 : "--"}
                             </span>
                           </div>
@@ -341,11 +360,10 @@ const ShowUser = () => {
                         />
                         <LabelText
                           label={"Price"}
-                          text={`$${
-                            userData.package_price
-                              ? userData.package_price
-                              : "0"
-                          }`}
+                          text={`$${userData.package_price
+                            ? userData.package_price
+                            : "0"
+                            }`}
                         />
                       </div>
                       <div className="grid sm:grid-cols-2">
@@ -388,11 +406,10 @@ const ShowUser = () => {
             {tabs.map((tab, index) => (
               <button
                 key={index}
-                className={`px-4 py-2 focus:outline-none border-blue-500 border-2 rounded border-b-0 ${
-                  activeTab === index
-                    ? "border-2 rounded border-blue-500 text-white bg-blue-500 border-b-0"
-                    : "text-gray-600"
-                }`}
+                className={`px-4 py-2 focus:outline-none border-blue-500 border-2 rounded border-b-0 ${activeTab === index
+                  ? "border-2 rounded border-blue-500 text-white bg-blue-500 border-b-0"
+                  : "text-gray-600"
+                  }`}
                 onClick={() => setActiveTab(index)}
               >
                 {tab}
@@ -457,10 +474,10 @@ const ShowUser = () => {
                 {childs.filter((childs) =>
                   childs.name.toLowerCase().includes(searchTerm.toLowerCase())
                 ).length === 0 && (
-                  <tr>
-                    <td colSpan="5 font-1">No data found to show</td>
-                  </tr>
-                )}
+                    <tr>
+                      <td colSpan="5 font-1">No data found to show</td>
+                    </tr>
+                  )}
               </tbody>
             </table>
           </div>

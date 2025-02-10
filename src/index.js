@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import HttpsRedirect from "react-https-redirect";
 import "animate.css/animate.css";
 import "./index.css";
@@ -13,10 +14,9 @@ import axios from "axios";
 import { store } from "./store";
 import { Provider } from "react-redux";
 import AiChatBotComp from "./components/AIChatBotComp";
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import "react-lazy-load-image-component/src/effects/blur.css";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
+// Fetch website settings dynamically
 const fetchWebsiteSettings = async () => {
   try {
     const res = await axios.get(
@@ -35,10 +35,16 @@ const fetchWebsiteSettings = async () => {
     };
   } catch (err) {
     console.error(err);
-    return;
+    return {
+      title: "Default Title",
+      description: "Default Description",
+      imageUrl: "https://backend.aiproresume.com/public/images/header_logo.png",
+      keywords: "resume, resume builder, AI resume",
+    };
   }
 };
 
+// Component to wrap Helmet and App
 const AppWithHelmet = ({ title, description, imageUrl, keywords }) => (
   <HttpsRedirect>
     <Helmet>
@@ -56,8 +62,10 @@ const AppWithHelmet = ({ title, description, imageUrl, keywords }) => (
     <AuthProvider>
       <CartProvider>
         <Provider store={store}>
-          <App />
-          <AiChatBotComp />
+          <BrowserRouter>
+            <App />
+            <AiChatBotComp />
+          </BrowserRouter>
         </Provider>
         <Whatsapp />
       </CartProvider>
@@ -65,17 +73,15 @@ const AppWithHelmet = ({ title, description, imageUrl, keywords }) => (
   </HttpsRedirect>
 );
 
+// Hydration instead of createRoot for dynamic SSR rendering
 const renderApp = async () => {
-  const { title, description, imageUrl, keywords } =
-    await fetchWebsiteSettings();
+  const settings = await fetchWebsiteSettings();
 
-  root.render(
-    <AppWithHelmet
-      title={title}
-      description={description}
-      imageUrl={imageUrl}
-      keywords={keywords}
-    />
+  ReactDOM.hydrateRoot(
+    document.getElementById("root"),
+    <React.StrictMode>
+      <AppWithHelmet {...settings} />
+    </React.StrictMode>
   );
 };
 

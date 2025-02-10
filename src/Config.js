@@ -10,9 +10,9 @@ global.localPath = "https://aiproresume.com/";
 
 //global.captcha_sitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"; //6LfubJMlAAAAAIS9rmGEc2X08qYGRnfUojI9nVXh testing
 
-// global.captcha_sitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"; //6LfubJMlAAAAAIS9rmGEc2X08qYGRnfUojI9nVXh testing
+global.captcha_sitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"; //6LfubJMlAAAAAIS9rmGEc2X08qYGRnfUojI9nVXh testing
 
-global.captcha_sitekey = "6LdRjxslAAAAAIP7BsNtsYgCvPM5RfNXjHGIzveJ";
+// global.captcha_sitekey = "6LdRjxslAAAAAIP7BsNtsYgCvPM5RfNXjHGIzveJ";
 
 //global.google_client_id =   "836834017476-9e99ra10kti08qdrgr3ptgj56c06qut1.apps.googleusercontent.com"; //old
 global.google_client_id =

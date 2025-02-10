@@ -3161,6 +3161,11 @@ footer {
 .blogContent2 li {
   margin-left: 20px;
 }
+img[data-align="center"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .editor_txt ol {
   list-style: auto;
@@ -3639,6 +3644,25 @@ footer {
   margin: 0;
   text-indent: 0;
 }
+
+.faq_editor ul li a {
+  color: #0072b1 !important;
+  font-weight: 600;
+}
+
+.faq_editor ul li a:hover {
+  color: #00bfab !important;
+}
+
+.faq_editor p a{
+  color: #0072b1 !important;
+  font-weight: 600;
+}
+
+.faq_editor p a:hover{
+  color: #00bfab !important;
+}
+
 .sun-editor .se-svg,
 .sun-editor button > svg {
   width: 14px !important;
@@ -3670,4 +3694,16 @@ footer {
 }
 .cover_from_cross {
   z-index: 99;
+}
+
+.ql-align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ql-editor img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block; 
 }

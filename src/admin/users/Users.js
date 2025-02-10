@@ -11,18 +11,24 @@ import { FaTimes } from "react-icons/fa";
 import Skeleton from "react-loading-skeleton";
 import axios from "axios";
 import {
-  FacebookShareButton,
-  FacebookIcon,
   WhatsappShareButton,
   WhatsappIcon,
-  LinkedinShareButton,
-  LinkedinIcon,
 } from "react-share";
-
-import { HiClipboardCheck } from "react-icons/hi";
 import { TfiEmail } from "react-icons/tfi";
-import { BiBookContent, BiFontFamily, BiLoaderAlt, BiX } from "react-icons/bi";
+import { BiLoaderAlt, BiX } from "react-icons/bi";
 import $ from "jquery";
+import { Stackbarchart } from "../../components/admin/stackbarchart";
+import moment from "moment";
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend
+} from "chart.js";
+import { Pie } from "react-chartjs-2";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
+
 const Admins = () => {
   const [users, setUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -33,16 +39,32 @@ const Admins = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [selectedUsers, setSelectedUsers] = useState([]); // New state for selected users
   const { userPermissions, user } = useAuth();
+  const [labels, setLabels] = useState([]);
+  const [stackBarChartData, setStackBarChartData] = useState([]);
+  const [todayUsers, setTodayUsers] = useState(0);
+  const [totalUsers, setTotalUsers] = useState(0);
+  const [doughnutData, setDoughnutData] = useState({});
+  const [activeTab, setActiveTab] = useState('all'); // state to manage active tab
+  const today = new Date().toISOString().split('T')[0];
 
   const handleKeyUp = (event) => {
     setSearchTerm(event.target.value);
+  };
+
+  const getLast7Days = () => {
+    return [...Array(7)].map((_, i) =>
+      moment().subtract(i, "days").format("YYYY-MM-DD")
+    ).reverse();
   };
 
   const loadData = () => {
     setIsLoading(true);
     ApiService.getAllUsers(user?.token)
       .then(async (response) => {
-        const usersData = response.data.data;
+        const usersData = response.data?.data || [];
+        const last7Days = getLast7Days();
+
+
         const usersWithCountry = await Promise.all(
           usersData.map(async (user) => {
             if (user.ip_address) {
@@ -51,8 +73,6 @@ const Admins = () => {
                   `https://ipinfo.io/${user.ip_address}/json`
                 );
                 user.country = res.data.country;
-                console.log("res");
-                console.log(res);
               } catch (error) {
                 user.country = "Not found";
               }
@@ -62,10 +82,81 @@ const Admins = () => {
             return user;
           })
         );
+
+        // Filter users who were created in the last 7 days
+        const filteredUsers = usersData.filter((user) =>
+          user.created_at && last7Days.includes(moment(user.created_at).format("YYYY-MM-DD"))
+        );
+
+
+        let usersPerDay = new Array(7).fill(0);
+        let freeUsers = new Array(7).fill(0);
+        let mostPopularUsers = new Array(7).fill(0);
+        let premiumUsers = new Array(7).fill(0);
+
+        filteredUsers.forEach((user) => {
+          const dayIndex = last7Days.indexOf(moment(user.created_at).format("YYYY-MM-DD"));
+          if (dayIndex !== -1) {
+            usersPerDay[dayIndex] += 1;
+            if (user.package_id === 1) freeUsers[dayIndex] += 1;
+            else if (user.package_id === 2) mostPopularUsers[dayIndex] += 1;
+            else if (user.package_id === 3) premiumUsers[dayIndex] += 1;
+          }
+        });
+
+        setLabels(last7Days);
         setUsers(usersWithCountry);
         updatePagination(usersWithCountry);
-        console.log(usersWithCountry);
         setIsLoading(false);
+
+        setStackBarChartData([
+          { data: freeUsers, label: "Free", backgroundColor: "#01b2ac" },
+          { data: mostPopularUsers, label: "Most Popular", backgroundColor: "#0072B1" },
+          { data: premiumUsers, label: "Premium", backgroundColor: "#01b2ac" },
+        ]);
+
+        // Get today's date Start
+        const today = moment().format("YYYY-MM-DD");
+
+        // Count today's users using created_at
+        const todayUsersCount = usersData.filter(user =>
+          user.created_at && moment(user.created_at).format("YYYY-MM-DD") === today
+        ).length;
+        const todayUsersCount2 = usersData.filter(user =>
+          user.created_at && moment(user.created_at).format("YYYY-MM-DD") === today
+        );
+
+
+        const totalUsersCount = usersData.length;
+
+        setTodayUsers(todayUsersCount);
+        setTotalUsers(totalUsersCount);
+
+        setDoughnutData({
+          datasets: [
+            {
+              data: [
+                todayUsers ? Number(todayUsers) : [0]
+              ],
+              label: "Users Per Day",
+              backgroundColor: ["#01b2ac", "#0072B1"],
+              hoverBackgroundColor: ["#01b2ac", "#0072B1"],
+              borderWidth: 0,
+            },
+          ],
+        });
+        // Get today's date End
+
+        setUsers(usersWithCountry);
+        updatePagination(usersWithCountry);
+        setIsLoading(false);
+
+        setStackBarChartData([
+          { data: freeUsers, label: "Free", backgroundColor: "#01b2ac" },
+          { data: mostPopularUsers, label: "Most Popular", backgroundColor: "#0072B1" },
+          { data: premiumUsers, label: "Premium", backgroundColor: "#27AAE1" },
+        ]);
+
       })
       .catch((err) => {
         console.log(err);
@@ -94,10 +185,14 @@ const Admins = () => {
         user.email.toLowerCase().includes(searchTermLowerCase) ||
         (user.job_position &&
           user.job_position.toLowerCase().includes(searchTermLowerCase)) ||
-        (user.country &&
-          user.country.toLowerCase().includes(searchTermLowerCase))
-      );
+        (user.country_name
+          &&
+          user.country_name
+            .toLowerCase().includes(searchTermLowerCase))
+      ) || (user.referral_link && user.referral_link.toLowerCase().includes(searchTermLowerCase))
     });
+
+
     updatePagination(filteredUsers);
     setCurrentPage(1);
     setPageOffset(0);
@@ -174,6 +269,22 @@ const Admins = () => {
     getData();
   }, []);
 
+  useEffect(() => {
+    setDoughnutData({
+      datasets: [
+        {
+          data: [
+            Number(todayUsers), Number(totalUsers)
+          ],
+          label: "Users",
+          backgroundColor: ["#01b2ac", "#0072B1"],
+          hoverBackgroundColor: ["#01b2ac", "#0072B1"],
+          borderWidth: 0,
+        },
+      ],
+    });
+  }, [todayUsers, totalUsers]);
+
   const handleCheckboxChange = (id) => {
     setSelectedUsers((prevSelectedUsers) =>
       prevSelectedUsers.includes(id)
@@ -192,8 +303,6 @@ const Admins = () => {
           const concatenatedLinks = data
             .map((docId) => `${global.localPath}share/${docId}?share=resume`)
             .join("\n");
-          // console.log("concatenatedLinks");
-          // console.log(concatenatedLinks);
           setCopyText1(concatenatedLinks);
           share_doc();
           if (concatenatedLinks == "") {
@@ -304,32 +413,30 @@ const Admins = () => {
   };
 
   const share_doc = async () => { };
-  // const share_doc = async () => {
-  //   $("#share_doc_modelbox").fadeIn(300);
-  //   const links = docIds.map(
-  //     (docId) => global.localPath + "share/" + docId + "?share=resume"
-  //   );
-  //   setFile(links);
-  //   console.log("all links", links);
-  //   // console.log(
-  //   //   global.localPath + "share/" + my_resumes.id + "?share=coverletter"
-  //   // );
-  //   //http://localhost:3000/demo/share/my_resumes.id?share=resume
-  //   //console.log(file2);
-  // };
   const share_doc_close = () => {
     $("#share_doc_modelbox").fadeOut(300);
   };
+
+  // Function to determine if user registered today
+  const isUserToday = (user) => user.registrationDate === today; // Adjust this to match your user date format
+
   const filteredUsers = users.filter((user) => {
     const searchTermLowerCase = searchTerm.toLowerCase();
-    return (
+    const matchesSearchTerm =
       user.name.toLowerCase().includes(searchTermLowerCase) ||
       user.email.toLowerCase().includes(searchTermLowerCase) ||
-      (user.job_position &&
-        user.job_position.toLowerCase().includes(searchTermLowerCase)) ||
-      (user.country && user.country.toLowerCase().includes(searchTermLowerCase))
-    );
+      (user.job_position && user.job_position.toLowerCase().includes(searchTermLowerCase)) ||
+      (user.country_name
+        && user.country_name
+          .toLowerCase().includes(searchTermLowerCase)) ||
+      (user.referral_link && user.referral_link.toLowerCase().includes(searchTermLowerCase))
+
+    const isToday = moment(user.created_at).format("YYYY-MM-DD") === today || isUserToday(user); // Check if the user is from today
+
+    // Return users based on the active tab (show today users if 'today' is selected)
+    return activeTab === 'today' ? (isToday && matchesSearchTerm) : matchesSearchTerm;
   });
+
 
   return (
     <>
@@ -380,6 +487,39 @@ const Admins = () => {
               </div>
             </div>
 
+            <div className="flex flex-row justify-between gap-8 mt-10 ">
+              <div className="w-[70%] max-h-[400px]">
+                <Stackbarchart labels={labels} datasets={stackBarChartData} />
+              </div>
+              <div className="w-[30%]">
+                <div className="flex gap-4 items-center mb-4">
+                  <div className="flex items-center justify-center bg-[#0072B1] hover:bg-[#01b2ac] transition-all duration-300 ease-in-out  rounded-full px-4 gap-2 py-2"
+                    onClick={() => setActiveTab('today')}>
+                    <div className="text-[#FFF] font_3 text-md ">
+                      {todayUsers}
+                    </div>
+                    <div className="flex items-center justify-center text-[#FFF] font_3 text-md">
+                      Today's Users
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center bg-[#0072B1] hover:bg-[#01b2ac] transition-all duration-300 ease-in-out  rounded-full px-4 gap-2 py-2"
+                    onClick={() => setActiveTab('all')}>
+                    <div className="text-[#FFF] font_3 text-md ">
+                      {totalUsers}
+                    </div>
+                    <div className="flex items-center justify-center text-[#FFF] font_3 text-md">
+                      Total Users
+                    </div>
+                  </div>
+                </div>
+                {doughnutData?.datasets && (
+                  <div className="w-[280px] h-[280px]">
+                    <Pie data={doughnutData} />
+                  </div>
+                )}
+              </div>
+            </div>
+
             <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start flex-wrap mt-10 w-[150%] lg:w-full">
               <div className="font_2 text-xl py-8 px-12 bg-[#0072b1] text-white rounded-t-lg w-full">
                 {"Users"}
@@ -402,6 +542,7 @@ const Admins = () => {
                         <th>Name</th>
                         <th>Country</th>
                         <th>Job Position</th>
+                        <th>Referral Link </th>
                         <th>Email</th>
                         <th>Verified</th>
                         <th>Childs</th>
@@ -410,81 +551,89 @@ const Admins = () => {
                         <th>Actions</th>
                       </tr>
                     </thead>
-                    <tbody className="bg-white rounded-xl">
-                      {filteredUsers
-                        .slice(pageOffset, pageLimit)
-                        .map((user, indexUser) => (
-                          <tr key={indexUser} className="h-[50px]">
-                            <td>
-                              <input
-                                type="checkbox"
-                                checked={selectedUsers.includes(user.id)}
-                                onChange={() => handleCheckboxChange(user.id)}
-                              />
-                            </td>
-                            <td className="w-[10%]">
-                              {(currentPage - 1) * 30 + indexUser + 1}
-                            </td>
-                            <td>{user.name}</td>
-                            <td>{user.country}</td>
-                            <td>{user.job_position}</td>
-                            <td>{user.email}</td>
-                            <td>{formattedDate(user.email_verified_at)}</td>
-                            <td>{user.childs_count}</td>
-                            <td>
-                              <div className="text-2xl flex justify-center items-center h-full">
-                                {user.status ? <FcCheckmark /> : <FcCancel />}
-                              </div>
-                            </td>
-                            <td>
-                              <div className="text-2xl flex justify-center items-center h-full">
-                                {user.email_verified_at ? (
-                                  <FcCheckmark />
-                                ) : (
-                                  <FaTimes className="text-red-500" />
-                                )}
-                              </div>
-                            </td>
-                            <td>
-                              <div className="w-full flex justify-center items-center gap-4">
-                                {/* Edit */}
-                                <Link
-                                  to="eidt"
-                                  title="Edit"
-                                  state={{ user_id: user.id }}
-                                  className={`${userPermissions.includes("user-edit")
-                                    ? "flex"
-                                    : "hidden"
-                                    }`}
-                                >
-                                  <MdOutlineModeEdit className="text-primary text-2xl" />
-                                </Link>
-                                {/* Show */}
-                                <Link
-                                  to="show-user"
-                                  state={{ user_id: user.id }}
-                                  title="Show"
-                                >
-                                  <FaEye className="text-primary text-2xl" />
-                                </Link>
-                                {/* Delete */}
-                                <Link
-                                  to="#"
-                                  title="Delete"
-                                  className={`${userPermissions.includes("user-delete")
-                                    ? "flex"
-                                    : "hidden"
-                                    }`}
-                                >
-                                  <MdDelete
-                                    className="text-primary text-2xl"
-                                    onClick={() => handleDeleteUser(user.id)}
-                                  />
-                                </Link>
-                              </div>
-                            </td>
-                          </tr>
-                        ))}
+                    <tbody className="bg-white rounded-xl ">
+                      {filteredUsers && filteredUsers.length > 0 ? (
+                        filteredUsers
+                          .slice(pageOffset, pageLimit)
+                          .map((user, indexUser) => (
+                            <tr key={indexUser} className="h-[50px] px-2">
+                              <td className="w-8">
+                                <input
+                                  type="checkbox"
+                                  checked={selectedUsers.includes(user.id)}
+                                  onChange={() => handleCheckboxChange(user.id)}
+                                />
+                              </td>
+                              <td className="">
+                                {(currentPage - 1) * 30 + indexUser + 1}
+                              </td>
+                              <td>{user.name}</td>
+                              <td>{user.country_name ?? user.country}</td>
+                              <td className="max-w-[160px] truncate px-2">{user.job_position}</td>
+                              <td className="max-w-[160px] truncate">{user.referral_link}</td>
+                              <td>{user.email}</td>
+                              <td>{formattedDate(user.email_verified_at)}</td>
+                              <td>{user.childs_count}</td>
+                              <td>
+                                <div className="text-2xl flex justify-center items-center h-full">
+                                  {user.status ? <FcCheckmark /> : <FcCancel />}
+                                </div>
+                              </td>
+                              <td>
+                                <div className="text-2xl flex justify-center items-center h-full">
+                                  {user.email_verified_at ? (
+                                    <FcCheckmark />
+                                  ) : (
+                                    <FaTimes className="text-red-500" />
+                                  )}
+                                </div>
+                              </td>
+                              <td>
+                                <div className="w-full flex justify-center items-center gap-4">
+                                  {/* Edit */}
+                                  <Link
+                                    to="eidt"
+                                    title="Edit"
+                                    state={{ user_id: user.id }}
+                                    className={`${userPermissions.includes("user-edit")
+                                      ? "flex"
+                                      : "hidden"
+                                      }`}
+                                  >
+                                    <MdOutlineModeEdit className="text-primary text-2xl" />
+                                  </Link>
+                                  {/* Show */}
+                                  <Link
+                                    to="show-user"
+                                    state={{ user_id: user.id }}
+                                    title="Show"
+                                  >
+                                    <FaEye className="text-primary text-2xl" />
+                                  </Link>
+                                  {/* Delete */}
+                                  <Link
+                                    to="#"
+                                    title="Delete"
+                                    className={`${userPermissions.includes("user-delete")
+                                      ? "flex"
+                                      : "hidden"
+                                      }`}
+                                  >
+                                    <MdDelete
+                                      className="text-primary text-2xl"
+                                      onClick={() => handleDeleteUser(user.id)}
+                                    />
+                                  </Link>
+                                </div>
+                              </td>
+                            </tr>
+                          ))) : (
+                        <tr>
+                          <td colSpan={12} className="text-center text-[#959492] text-lg py-2 my-2">
+                            No Data Found
+                          </td>
+                        </tr>
+                      )}
                     </tbody>
                   </table>
                 )}
@@ -583,38 +732,6 @@ const Admins = () => {
             </h1>
 
             <div className="flex flex-wrap justify-center items-start mt-10">
-              {/* <button
-                className="hover:text-[#01B2AC]"
-                onClick={handleCopyClick}
-              >
-                <HiClipboardCheck
-                  className="mx-1"
-                  size={window.innerWidth <= 440 ? 32 : 60}
-                />
-              </button> */}
-              {/* Facebook Share Button */}
-              {/* <FacebookShareButton
-                className="hover:text-[#01B2AC]"
-                url={file}
-                quote={"Check Link"}
-              >
-                <FacebookIcon
-                  size={window.innerWidth <= 440 ? 32 : 60}
-                  className="mx-1"
-                />
-              </FacebookShareButton> */}
-
-              {/* Whatsapp Share Button */}
-              {/* <WhatsappShareButton
-                className="hover:text-[#01B2AC]"
-                url={copyText1}
-                title={copyText1}
-              >
-                <WhatsappIcon
-                  size={window.innerWidth <= 440 ? 32 : 60}
-                  className="mx-1"
-                />
-              </WhatsappShareButton> */}
               <div>
                 {/* {/ Whatsapp Share Button /} */}
                 <WhatsappShareButton
@@ -630,19 +747,6 @@ const Admins = () => {
 
                 <button onClick={share_doc}></button>
               </div>
-
-              {/* LinkedIn Share Button */}
-              {/* <LinkedinShareButton
-                className="hover:text-[#01B2AC]"
-                url={file}
-                title={"Check Link"}
-              >
-                <LinkedinIcon
-                  size={window.innerWidth <= 440 ? 32 : 60}
-                  className="mx-1"
-                />
-              </LinkedinShareButton> */}
-
               <button
                 className="mr_heading btn_copy hover:text-[#01B2AC]"
                 onClick={() => {

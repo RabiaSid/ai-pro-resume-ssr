@@ -1,5 +1,5 @@
 import React from "react";
-import TextEditer from "./TextEditer2";
+import TextEditer from "./TextEditer3.js";
 
 const InputWithTextEditer = ({
   label,
