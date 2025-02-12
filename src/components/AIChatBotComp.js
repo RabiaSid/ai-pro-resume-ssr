@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AIChatBot from "./ai-chatbot/AIChatBot";
-import AiChatBotIcon from "../assets/images/robot.webp";
+
+const AiChatBotIcon = "/images/robot.webp";
 
 export default function AiChatBotComp() {
     const [open, setOpen] = useState(false);

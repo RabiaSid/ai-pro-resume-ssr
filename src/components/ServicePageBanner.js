@@ -1,8 +1,8 @@
 import React from "react";
-import shadeImage01 from "../assets/images/pattrens/01.webp";
-import shadeImage02 from "../assets/images/pattrens/02.webp";
-import shadeImage03 from "../assets/images/pattrens/03.webp";
-import services_banner_img from "../assets/images/services_banner_img.webp";
+const shadeImage01 = "/images/pattrens/01.webp";
+const shadeImage02 = "/images/pattrens/02.webp";
+const shadeImage03 = "/images/pattrens/03.webp";
+const services_banner_img = "/images/services_banner_img.webp";
 
 export default function ServicePageBanner({
   startText,

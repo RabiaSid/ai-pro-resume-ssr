@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import background_abouts_us from "../../assets/images/background_abouts_us.webp";
 import { IoIosArrowDropright, IoIosArrowDropleft } from "react-icons/io";
 import { IoCloseOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +11,7 @@ import swal from "sweetalert";
 
 import { useAuth } from "../../services/Auth";
 
+const background_abouts_us = "/images/background_abouts_us.webp";
 const TemplateSliderCover = ({ open, onClose, templates, initialIndex }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex || 0);
   const navigate = useNavigate();

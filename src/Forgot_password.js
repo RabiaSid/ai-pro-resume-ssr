@@ -1,4 +1,3 @@
-import loader1 from "./assets/images/loader1.gif";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./css/style2.css";
@@ -9,6 +8,9 @@ import Header from "./Header";
 import Footer from "./Footer";
 import $ from "jquery";
 import axios from "axios";
+
+const loader1 = "/images/loader1.gif";
+
 
 function Forgot_password() {
   const navigate = useNavigate();

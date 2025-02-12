@@ -1,13 +1,14 @@
 import React from 'react'
 import { MdNavigateNext } from "react-icons/md";
-import bubblePoint from "../../assets/images/whiteBubbleLeft.webp"
-import BubbleRightPoint from "../../assets/images/rightBubblePoint.webp"
-import coverLetterImg from "../../assets/images/coverLetter.webp"
-import createResumeLogo from "../../assets/images/ResumeCreate.webp"
-import importResume from "../../assets/images/ImportResume.webp"
 import { ApiService } from '../../services/ApiService';
 import { updateChatBotResponse } from '../../redux-features/chatbot/chatBotSlice';
 import { useDispatch } from 'react-redux';
+
+const bubblePoint = "/images/whiteBubbleLeft.webp"
+const BubbleRightPoint = "/images/rightBubblePoint.webp"
+const coverLetterImg = "/images/coverLetter.webp"
+const createResumeLogo = "/images/ResumeCreate.webp"
+const importResume = "/images/ImportResume.webp"
 
 const CreateDocChat = ({ sender, setIsLoadingChat }) => {
 

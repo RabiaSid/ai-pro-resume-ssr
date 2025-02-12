@@ -3,14 +3,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "react-awesome-slider/dist/styles.css";
 import axios from "axios";
-import man_space from "./assets/images/page_not_found/man_space.gif";
-import star from "./assets/images/page_not_found/star.webp";
-import rocket from "./assets/images/page_not_found/rocket.webp";
-import venus from "./assets/images/page_not_found/venus.gif";
 import Footer from "./Footer";
 import Header from "./Header";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
+
+const man_space = "/images/page_not_found/man_space.gif";
+const star = "/images/page_not_found/star.webp";
+const rocket = "/images/page_not_found/rocket.webp";
+const venus = "/images/page_not_found/venus.gif";
 function PageNotFound() {
   const [our_settings_random_blogs, set_our_settings_random_blogs] = useState(
     []

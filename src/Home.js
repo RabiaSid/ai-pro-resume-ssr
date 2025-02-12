@@ -1,16 +1,5 @@
 import React, { useEffect, useState } from "react";
-import service_1 from "./assets/images/service_1.webp";
-import service_2 from "./assets/images/service_2.webp";
-import service_3 from "./assets/images/service_3.webp";
-import banner_about from "./assets/images/main_image.webp";
-import icon_1 from "./assets/images/icon_1.webp";
-import icon_5 from "./assets/images/icon_5.webp";
-import icon_2 from "./assets/images/icon_2.webp";
-import icon_6 from "./assets/images/icon_6.webp";
-import icon_3 from "./assets/images/icon_3.webp";
-import icon_7 from "./assets/images/icon_7.webp";
-import icon_4 from "./assets/images/icon_4.webp";
-import icon_8 from "./assets/images/icon_8.webp";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -24,12 +13,8 @@ import NinaButton from "./components/NinaButton";
 import Partners from "./components/shared-components/Partners";
 import FeaturesFlipCard from "./components/FeaturesFlipCard";
 import ReviewsCard from "./components/shared-components/ReviewsCard";
-// Slider Image
-import MainSliderImage1 from "./assets/images/home_slider/slider_1.webp";
-import MainSliderImage2 from "./assets/images/home_slider/slider_2.webp";
-import MainSliderImage3 from "./assets/images/home_slider/slider_3.webp";
-import MainSliderImage4 from "./assets/images/home_slider/slider_4.webp";
-import MainSliderImage5 from "./assets/images/home_slider/slider_5.webp";
+
+
 import ScrollAnimation from "react-animate-on-scroll";
 import ServicesCard from "./components/shared-components/ServicesCard";
 import {
@@ -38,16 +23,37 @@ import {
   FaLongArrowAltRight,
 } from "react-icons/fa";
 //
-import shadeImage01 from "./assets/images/pattrens/01.webp";
-import shadeImage02 from "./assets/images/pattrens/02.webp";
-import shadeImage03 from "./assets/images/pattrens/03.webp";
-import PattrenGreen from "./assets/images/pattrens/multi-liners-blue.webp";
+
 //
 import ResumeHomeShow from "./components/ResumeHomeShow";
 import { ApiService } from "./services/ApiService.jsx";
 import OurFaqs from "./components/faq";
 import SeoMetaTags from "./components/seo/seo";
 // C:\Users\kamal\OneDrive\Desktop\RIMSHA NAEEM\AiProResume\ai-pro-resume\src\img
+
+const service_1 = "/images/service_1.webp";
+const service_2 = "/images/service_2.webp";
+const service_3 = "/images/service_3.webp";
+const banner_about = "/images/main_image.webp";
+const icon_1 = "/images/icon_1.webp";
+const icon_5 = "/images/icon_5.webp";
+const icon_2 = "/images/icon_2.webp";
+const icon_6 = "/images/icon_6.webp";
+const icon_3 = "/images/icon_3.webp";
+const icon_7 = "/images/icon_7.webp";
+const icon_4 = "/images/icon_4.webp";
+const icon_8 = "/images/icon_8.webp";
+// Slider Image
+const MainSliderImage1 = "/images/home_slider/slider_1.webp";
+const MainSliderImage2 = "/images/home_slider/slider_2.webp";
+const MainSliderImage3 = "/images/home_slider/slider_3.webp";
+const MainSliderImage4 = "/images/home_slider/slider_4.webp";
+const MainSliderImage5 = "/images/home_slider/slider_5.webp";
+const shadeImage01 = "/images/pattrens/01.webp";
+const shadeImage02 = "/images/pattrens/02.webp";
+const shadeImage03 = "/images/pattrens/03.webp";
+const PattrenGreen = "/images/pattrens/multi-liners-blue.webp";
+
 function Home() {
   const [random_services, set_random_services] = useState([" ", " "]);
   const [our_reviews, set_our_reviews] = useState([" ", " ", " "]);

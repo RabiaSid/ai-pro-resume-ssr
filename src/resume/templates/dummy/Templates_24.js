@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import placeholderImageUser from "../../../assets/images/reusme_placeholder_image.webp";
+const placeholderImageUser = "/images/reusme_placeholder_image.webp";
 import { PiPencilLineLight } from "react-icons/pi";
 import { GoBriefcase } from "react-icons/go";
 import { HiBars2, HiOutlineAcademicCap } from "react-icons/hi2";

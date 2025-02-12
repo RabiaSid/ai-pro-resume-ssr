@@ -22,19 +22,17 @@ const fetchWebsiteSettings = async () => {
     const res = await axios.get(
       `https://backend.aiproresume.com/public/api/settings-for-website`
     );
-    const data = res.data.data.settings;
+    const data = res?.data?.data?.settings;
     return {
-      title: data.title || "Default Title",
-      description: data.description || "Default Description",
-      imageUrl:
-        `${res.data.data.image_url}/${data.share_image}` ||
-        "https://backend.aiproresume.com/public/images/header_logo.png",
-      keywords:
-        data.keywords ||
-        "AI resume pro, resume maker pro, resume pro, my perfect resume, find my resume, free resume builder, resume help, resume design, build my resume",
+      title: data?.title || "Default Title",
+      description: data?.description || "Default Description",
+      imageUrl: data?.share_image
+        ? `${res?.data?.data?.image_url}/${data?.share_image}`
+        : "https://backend.aiproresume.com/public/images/header_logo.png",
+      keywords: data?.keywords || "resume, AI resume, resume builder",
     };
   } catch (err) {
-    console.error(err);
+    console.error("Error fetching settings:", err);
     return {
       title: "Default Title",
       description: "Default Description",
@@ -43,6 +41,7 @@ const fetchWebsiteSettings = async () => {
     };
   }
 };
+
 
 // Component to wrap Helmet and App
 const AppWithHelmet = ({ title, description, imageUrl, keywords }) => (

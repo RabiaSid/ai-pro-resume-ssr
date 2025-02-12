@@ -1,9 +1,10 @@
 import React from "react";
 import { LiaTimesSolid } from "react-icons/lia";
-import Logo from "../../assets/images/logo_resume.webp";
 import { Link, useNavigate } from "react-router-dom";
 import { ApiService } from "../../services/ApiService";
 import { useAuth } from "../../services/Auth";
+
+const Logo = "/images/logo_resume.webp";
 
 const SideNav = ({ isOpen, close }) => {
   const { user, clearSession } = useAuth();

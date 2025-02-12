@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import temp from "../assets/images/temp.webp";
 import Footer from "../Footer";
 import $ from 'jquery';
 import axios from "axios";
@@ -11,6 +10,7 @@ import { useParams } from "react-router-dom";
 import Cookies from 'js-cookie';
 import swal from 'sweetalert'
 
+const temp = "/images/temp.webp";
 const Header = ({ isOpen }) => {
 
   const [our_settings, set_our_settings] = useState([]);

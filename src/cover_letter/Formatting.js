@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef, Suspense } from "react";
-import Logo from "../assets/images/logo_resume.webp";
 import { RxHamburgerMenu } from "react-icons/rx";
 import $ from "jquery";
 import axios from "axios";
@@ -11,7 +10,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import swal from "sweetalert";
 import { useAuth } from "../services/Auth";
 import ActiveTemplate from "./ActiveTemplate";
-import premium from "../assets/images/premium.webp";
+
 import { FaLock } from "react-icons/fa";
 import Tooltip from "@mui/material/Tooltip";
 import {
@@ -69,22 +68,23 @@ import { FcSignature } from "react-icons/fc";
 import SideNav from "../components/shared-components/SideNav";
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
-import Capture1 from "../assets/images/cover_tour_steps/1.gif";
-import Capture2 from "../assets/images/cover_tour_steps/Signature.gif";
-import Capture3 from "../assets/images/cover_tour_steps/Template_Selection.gif";
-import Capture4 from "../assets/images/cover_tour_steps/Formatting.gif";
-import Capture5 from "../assets/images/cover_tour_steps/Theme_Selection.gif";
-import Capture6 from "../assets/images/cover_tour_steps/download.gif";
+
 import GenerateCoverLetter from "./cover-letters-modal/GenerateCoverLetter";
 import { IoSparklesSharp } from "react-icons/io5";
-import brand from "../assets/images/brand.webp";
 import SunEditor from "suneditor-react";
 import AiModal from "../components/shared-components/ai_modal/AiModal";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { toast } from "react-toastify";
-import loader from '../assets/images/triangleLoaderNoBg.gif'
-
-
+const premium = "/images/premium.webp";
+const Capture1 = "/images/cover_tour_steps/1.gif";
+const Capture2 = "/images/cover_tour_steps/Signature.gif";
+const Capture3 = "/images/cover_tour_steps/Template_Selection.gif";
+const Capture4 = "/images/cover_tour_steps/Formatting.gif";
+const Capture5 = "/images/cover_tour_steps/Theme_Selection.gif";
+const Capture6 = "/images/cover_tour_steps/download.gif";
+const brand = "/images/brand.webp";
+const loader = '../assets/images/triangleLoaderNoBg.gif'
+const Logo = "/images/logo_resume.webp";
 const Header = () => {
   const { user } = useAuth();
   const navigate = useNavigate();

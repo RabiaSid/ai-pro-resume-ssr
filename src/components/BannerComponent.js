@@ -1,23 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
-import shadeImage01 from "../assets/images/pattrens/01.webp";
-import shadeImage02 from "../assets/images/pattrens/02.webp";
-import shadeImage03 from "../assets/images/pattrens/03.webp";
-import NinaButton from "./NinaButton";
-import { useAuth } from "../services/Auth";
-import saudi from "../assets/images/company/saudi.webp";
-import aerotek from "../assets/images/company/aerotek.webp";
-import geti from "../assets/images/company/geti.webp";
-import ladders from "../assets/images/company/ladders.webp";
-import snagajob from "../assets/images/company/snagajob.webp";
-import alison from "../assets/images/company/alison.webp";
-import bannerArrow from "../assets/images/Banner_arrow_icon.webp";
-import template_design1 from "../assets/images/template_design_1.webp";
-import template_design2 from "../assets/images/template_design_2.webp";
-import template_design3 from "../assets/images/template_design_3.webp";
-import template_design4 from "../assets/images/template_design_4.webp";
-import bannerIcon from "../assets/images/banner-icons.webp";
+
 import { Link } from "react-router-dom";
 import LazyLoadImageComp from "./lazyLoadImage/lazyLoadImage";
+
+import NinaButton from "./NinaButton";
+import { useAuth } from "../services/Auth";
+
+const shadeImage01 = "/images/pattrens/01.webp";
+const shadeImage02 = "/images/pattrens/02.webp";
+const shadeImage03 = "/images/pattrens/03.webp";
+const saudi = "/images/company/saudi.webp";
+const aerotek = "/images/company/aerotek.webp";
+const geti = "/images/company/geti.webp";
+const ladders = "/images/company/ladders.webp";
+const snagajob = "/images/company/snagajob.webp";
+const alison = "/images/company/alison.webp";
+const bannerArrow = "/images/Banner_arrow_icon.webp";
+const template_design1 = "/images/template_design_1.webp";
+const template_design2 = "/images/template_design_2.webp";
+const template_design3 = "/images/template_design_3.webp";
+const template_design4 = "/images/template_design_4.webp";
+const bannerIcon = "/images/banner-icons.webp";
 
 const BannerComponent = ({
   highlightText,

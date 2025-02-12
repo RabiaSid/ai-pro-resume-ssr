@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ApiService } from "../../services/ApiService";
-import logo from "../../assets/images/logo_resume.webp";
 import { BiSolidUser, BiLogOut } from "react-icons/bi";
 import { RiBarChartHorizontalLine } from "react-icons/ri";
 import { useAuth } from "../../services/Auth";
@@ -9,6 +8,7 @@ import { MdReplay } from "react-icons/md";
 import { FaCheck } from "react-icons/fa6";
 import { RiLoaderFill } from "react-icons/ri";
 
+const logo = "/images/logo_resume.webp";
 const Header = ({ handleSideBarAction }) => {
   const { user, clearSession } = useAuth();
   const [our_settings, set_our_settings] = useState([]);

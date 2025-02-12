@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import temp from "../../assets/images/temp.webp";
 import $ from "jquery";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -24,6 +23,7 @@ import Draggable from "react-draggable";
 import { BiPencil, BiSolidTrash, BiMove } from "react-icons/bi";
 import { useAuth } from "../../services/Auth";
 import Skeleton from "react-loading-skeleton";
+const temp = "/images/temp.webp";
 const Header = (props) => {
   const { user } = useAuth();
   const handleDrag = (e, ui) => {

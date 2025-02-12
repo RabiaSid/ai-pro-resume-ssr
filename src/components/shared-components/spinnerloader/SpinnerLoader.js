@@ -1,6 +1,7 @@
 import React from "react";
 import "./spinnerloader.css";
-import logo from "../../../assets/images/logo_resume.webp";
+
+const logo = "/images/logo_resume.webp";
 
 const SpinnerLoader = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 
-import placeholderImageUser from "../../../assets/images/reusme_placeholder_image.webp";
+const placeholderImageUser = "/images/reusme_placeholder_image.webp";
 import SectionExperience from "./component_sections/Experience";
 import SectionEducation from "./component_sections/Education";
 import SectionAwards from "./component_sections/Awards";

@@ -2,9 +2,10 @@ import React from "react";
 import { useState } from "react";
 import Cookies from "js-cookie";
 import { LuPlus } from "react-icons/lu";
-import plus_resume from "../assets/images/plus_resume.webp";
 import { useNavigate } from "react-router-dom";
 import { CiCirclePlus } from "react-icons/ci";
+
+const plus_resume = "/images/plus_resume.webp";
 export default function CreateNewResumeOrCoverLetter() {
   const [isOpen1, setIsOpen1] = useState(false);
 

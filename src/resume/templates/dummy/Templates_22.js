@@ -1,6 +1,5 @@
 import React from "react";
 
-import placeholderImageUser from "../../../assets/images/reusme_placeholder_image.webp";
 import SectionExperience from "./component_sections/Experience";
 import SectionEducation from "./component_sections/Education";
 import SectionAwards from "./component_sections/Awards";
@@ -10,9 +9,10 @@ import SectionLanguages from "./component_sections/Languages";
 import SectionProfileInfo from "./component_sections/ProfileInfo";
 import SectionSkills from "./component_sections/Skills";
 import { ReactSVG } from "react-svg";
-import HeaderShape from "../../../assets/images/shapes/shape_1.svg";
 import Branding from "../../../components/Branding";
 
+const placeholderImageUser = "/images/reusme_placeholder_image.webp";
+const HeaderShape = "/images/shapes/shape_1.svg";
 const Header = ({
   resumeData,
   activeTheme,

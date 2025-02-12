@@ -1,11 +1,11 @@
 import React from "react";
 import PackageCard from "../components/PackageCard";
-import payGridImg from "../assets/images/pay_grid.webp";
 import { useState, useEffect } from "react";
 import { useAuth } from "../services/Auth";
 import { ApiService } from "../services/ApiService";
 import axios from "axios";
 
+const payGridImg = "/images/pay_grid.webp";
 export default function ServicesPackageCards() {
   const { user } = useAuth();
   const [services, setServices] = useState([]);

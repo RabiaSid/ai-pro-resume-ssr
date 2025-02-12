@@ -6,14 +6,17 @@ import $ from "jquery";
 import axios from "axios";
 import { useCart } from "./data/CartStore";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import coin from "./assets/images/dollar.webp";
+// import coin from "/images/dollar.webp";
 import { ApiService } from "./services/ApiService";
 import { useAuth } from "./services/Auth";
 import { Menu } from "@headlessui/react";
-import Logo from "./assets/images/logo_resume.webp";
+// import Logo from "/images/logo_resume.webp";
 import CreateNewResumeOrCoverLetter from "./components/CreateNewResumeOrCoverLetter";
 import { Box, Modal } from "@mui/material";
 import Cookies from "js-cookie";
+
+const Logo = "/images/logo_resume.webp";
+const coin = "/images/dollar.webp";
 
 function Header({ CoinIcon }) {
   const [showProfilePopup, setShowProfilePopup] = useState(false);

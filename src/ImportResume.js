@@ -5,12 +5,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
 import FormData from "form-data";
-import import_file from "./assets/images/import_file.webp";
-import pdficon from "./assets/images/pdf import icon.webp";
-import closeicon from "./assets/images/close import.webp";
-import shadeImage01 from "./assets/images/pattrens/01.webp";
-import shadeImage02 from "./assets/images/pattrens/02.webp";
-import shadeImage03 from "./assets/images/pattrens/03.webp";
+
 import JSZip from "jszip";
 import { useAuth } from "./services/Auth";
 import { BiLoaderAlt } from "react-icons/bi";
@@ -22,6 +17,13 @@ import { Link } from "react-router-dom";
 import { ApiService } from "./services/ApiService";
 import { useDropzone } from "react-dropzone";
 import LazyLoadImageComp from "./components/lazyLoadImage/lazyLoadImage";
+
+const import_file = "/images/import_file.webp";
+const pdficon = "/images/pdf import icon.webp";
+const closeicon = "/images/close import.webp";
+const shadeImage01 = "/images/pattrens/01.webp";
+const shadeImage02 = "/images/pattrens/02.webp";
+const shadeImage03 = "/images/pattrens/03.webp";
 
 const ProgressBar = ({ progress }) => {
   return (

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import payment_logos from "./assets/images/pay_logos.webp";
+// import payment_logos from "/images/pay_logos.webp";
 import {
   BiLogoFacebook,
   BiLogoTwitter,
@@ -13,8 +13,11 @@ import axios from "axios";
 import { ApiService } from "./services/ApiService";
 import swal from "sweetalert";
 import { useAuth } from "./services/Auth";
-import Logo from "./assets/images/logo_resume_white.webp";
+// import Logo from "/images/logo_resume_white.webp";
 import { getCurrentYear } from "./utils/dateUtils";
+
+const payment_logos = "/images/pay_logos.webp"
+const Logo = "/images/logo_resume_white.webp";
 
 function Footer() {
   const [show_pages, set_show_pages] = useState([]);

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import placeholderImageUser from "../../../assets/images/reusme_placeholder_image.webp";
 
 import { LuLanguages } from "react-icons/lu";
 import { PiPencilLineLight } from "react-icons/pi";
@@ -24,6 +23,7 @@ import SectionLanguages from "./component_sections/Languages";
 import SectionProfileInfo from "./component_sections/ProfileInfo";
 import SectionSkills from "./component_sections/Skills";
 import Branding from "../../../components/Branding";
+const placeholderImageUser = "/images/reusme_placeholder_image.webp";
 const Header = ({
   resumeData,
   activeTheme,

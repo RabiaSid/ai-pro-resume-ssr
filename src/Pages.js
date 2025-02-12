@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import about_icon_1 from "./assets/images/about_icon_1.webp";
-import about_icon_2 from "./assets/images/about_icon_2.webp";
-import about_img_3 from "./assets/images/about_img_3.webp";
-import about_icon_3 from "./assets/images/about_icon_3.webp";
+
 import Header from "./Header";
 import Footer from "./Footer";
 import Slider from "react-slick";
@@ -17,18 +14,26 @@ import ReviewsCard from "./components/shared-components/ReviewsCard";
 import Partners from "./components/shared-components/Partners";
 import { useAuth } from "./services/Auth";
 import { ApiService } from "./services/ApiService";
-import shadeImage01 from "./assets/images/pattrens/01.webp";
-import shadeImage02 from "./assets/images/pattrens/02.webp";
-import shadeImage03 from "./assets/images/pattrens/03.webp";
+
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
-import resume_created from "./assets/images/resume_made.webp";
-import coverCreated from "./assets/images/coverLetterCreated.webp";
-import job_articles from "./assets/images/job_articles.webp";
-import satisfiedClient from "./assets/images/satisfiedclients.webp";
+
 import ScrollAnimation from "react-animate-on-scroll";
-import blog_banner_image from "./assets/images/blog_banner_image.webp";
+
 
 import ServicesCardAbout from "./components/shared-components/ServiceCardAbout";
+
+const about_icon_1 = "/images/about_icon_1.webp";
+const about_icon_2 = "/images/about_icon_2.webp";
+const about_img_3 = "/images/about_img_3.webp";
+const about_icon_3 = "/images/about_icon_3.webp";
+const shadeImage01 = "/images/pattrens/01.webp";
+const shadeImage02 = "/images/pattrens/02.webp";
+const shadeImage03 = "/images/pattrens/03.webp";
+const resume_created = "/images/resume_made.webp";
+const coverCreated = "/images/coverLetterCreated.webp";
+const job_articles = "/images/job_articles.webp";
+const satisfiedClient = "/images/satisfiedclients.webp";
+const blog_banner_image = "/images/blog_banner_image.webp";
 
 function Pages() {
   const current_page = useParams().page;

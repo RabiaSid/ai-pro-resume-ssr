@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ApiService } from "../../services/ApiService";
-import placeholderImage from "../../assets/images/placeholder.webp";
 import LabelText from "../../components/LabelText";
 import { BiRightArrowAlt, BiLeftArrowAlt } from "react-icons/bi";
 import { useAuth } from "../../services/Auth";
@@ -10,6 +9,7 @@ import UserTransactionServices from "./UserTransactionsServices";
 import CoverLetterShow from "./CoverLetterShow";
 import TransactionUser from "./TransactionUser";
 
+const placeholderImage = "/images/placeholder.webp";
 const ShowUser = () => {
 
   const { user } = useAuth();

@@ -4,14 +4,16 @@ import { Link } from "react-router-dom";
 import { ApiService } from "./services/ApiService";
 import { useAuth } from "./services/Auth";
 import { Tab } from "@headlessui/react";
-import progress_loader from "./assets/images/progress_loader.webp";
-import tick from "./assets/images/tick.webp";
-import download_icon from "./assets/images/download_icon.webp";
+
 import Skeleton from "react-loading-skeleton";
 import axios from "axios";
 import { BiRevision } from "react-icons/bi";
 import { useForm, Controller } from "react-hook-form";
 import { Tooltip } from "react-tooltip";
+
+const progress_loader = "/images/progress_loader.webp";
+const tick = "/images/tick.webp";
+const download_icon = "/images/download_icon.webp";
 
 const MyServicesRewamped = () => {
   const { user } = useAuth();

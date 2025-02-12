@@ -4,20 +4,30 @@ import Header from "./Header";
 import Footer from "./Footer";
 import axios from "axios";
 import FormData from "form-data";
-import pdficon from "./assets/images/pdf import icon.webp";
-import closeicon from "./assets/images/close import.webp";
-import shadeImage01 from "./assets/images/pattrens/01.webp";
-import shadeImage02 from "./assets/images/pattrens/02.webp";
-import shadeImage03 from "./assets/images/pattrens/03.webp";
+// import pdficon from "/images/pdf import icon.webp";
+// import closeicon from "/images/close import.webp";
+// import shadeImage01 from "/images/pattrens/01.webp";
+// import shadeImage02 from "/images/pattrens/02.webp";
+// import shadeImage03 from "/images/pattrens/03.webp";
 import { useAuth } from "./services/Auth";
 import swal from "sweetalert";
 import "driver.js/dist/driver.css";
 import { useDropzone } from "react-dropzone";
-import Upload from "./assets/images/upload.webp";
-import Points from "./assets/images/ats_checker_points.webp";
-import PointArrow from "./assets/images/point_arrow.webp";
-import Background from "./assets/images/pckg_cards.webp";
+// import Upload from "/images/upload.webp";
+// import Points from "/images/ats_checker_points.webp";
+// import PointArrow from "/images/point_arrow.webp";
+// import Background from "/images/pckg_cards.webp";
 import OurFaqs from "./components/faq";
+
+const Upload = "/images/upload.webp";
+const Points = "/images/ats_checker_points.webp";
+const PointArrow = "/images/point_arrow.webp";
+const Background = "/images/pckg_cards.webp";
+const pdficon = "/images/pdf const icon.webp";
+const closeicon = "/images/close const.webp";
+const shadeImage01 = "/images/pattrens/01.webp";
+const shadeImage02 = "/images/pattrens/02.webp";
+const shadeImage03 = "/images/pattrens/03.webp";
 
 const ProgressBar = ({ progress }) => {
   return (

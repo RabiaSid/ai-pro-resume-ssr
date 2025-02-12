@@ -6,7 +6,7 @@ import { useCart } from "./data/CartStore";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { ApiService } from "./services/ApiService";
-import PackageImg from "./assets/images/free_basic_img.webp";
+// import PackageImg from "/images/free_basic_img.webp";
 // Paypal
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 // Stripe
@@ -14,7 +14,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import LoadingSpiner from "./components/LoadingSpinner";
 // import axios from "axios";
-import coin from "./assets/images/dollar.webp";
+// import coin from "/images/dollar.webp";
 import "./css/style2.css";
 import { LiaTimesCircleSolid, LiaTimesSolid } from "react-icons/lia";
 import MainBanner from "./components/MainBanner";
@@ -25,6 +25,9 @@ import Cookies from "js-cookie";
 import StripeSeprateComponent from "./components/shared-components/StripeSeprateComponent";
 import axios from "axios";
 import { use } from "react";
+
+const PackageImg = "/images/free_basic_img.webp";
+const coin = "/images/dollar.webp";
 const Checkout = () => {
   // Loading
   const [isLoading, setIsLoading] = useState(false);

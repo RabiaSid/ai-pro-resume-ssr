@@ -14,8 +14,8 @@ import LoadingSpiner from "./components/LoadingSpinner";
 import { BiSearch } from "react-icons/bi";
 import { useAuth } from "./services/Auth";
 import TemplateSliderCover from "./components/shared-components/TemplateSliderCover";
-import search_symbol from "./assets/images/search_symbol.webp";
-import premium from "./assets/images/premium.webp";
+// import search_symbol from "/images/search_symbol.webp";
+// import premium from "/images/premium.webp";
 import $ from "jquery";
 import { ApiService } from "./services/ApiService";
 import { useCart } from "./data/CartStore";
@@ -25,8 +25,16 @@ import { CgTemplate } from "react-icons/cg";
 import { BsBoxSeamFill } from "react-icons/bs";
 import { GoChecklist } from "react-icons/go";
 import OurFaqs from "./components/faq";
-import brand from "./assets/images/brand.webp";
+// import brand from "/images/brand.webp";
 import LazyLoadImageComp from "./components/lazyLoadImage/lazyLoadImage";
+
+// import search_symbol from "/images/search_symbol.webp";
+// import premium from "/images/premium.webp";
+// import brand from "/images/brand.webp";
+
+const search_symbol = "/images/search_symbol.webp";
+const premium = "/images/premium.webp";
+const brand = "/images/brand.webp";
 
 function Pages() {
   const { user } = useAuth();

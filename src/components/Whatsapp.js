@@ -1,5 +1,5 @@
 import React from "react";
-import whatsapp from "../assets/images/whatsapp.webp";
+const whatsapp = "/images/whatsapp.webp";
 
 export default function Whatsapp() {
   return (

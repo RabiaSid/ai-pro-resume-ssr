@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import temp from "../assets/images/temp.webp";
-import prof_img_def from "../assets/images/avatar.webp";
 import Footer from "./Footer";
 import Progress from "./Progress";
 import $ from "jquery";
@@ -17,6 +15,9 @@ import swal from "sweetalert";
 import { useAuth } from "../services/Auth";
 import Loader from "../Loader";
 
+
+const temp = "/images/temp.webp";
+const prof_img_def = "/images/avatar.webp";
 const Header = ({ isOpen }) => {
   const { user } = useAuth();
   const [check_loader, set_check_loader] = useState(0);

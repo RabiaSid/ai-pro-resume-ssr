@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import logo from "../assets/images/logo_resume.webp";
+
+const logo = "/images/logo_resume.webp";
 
 const LoadingSpiner = ({ isLoading }) => {
   useEffect(() => {

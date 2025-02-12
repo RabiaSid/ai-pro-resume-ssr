@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, Suspense } from "react";
-import Logo from "../assets/images/logo_resume.webp";
+// import Logo from "/images/logo_resume.webp";
 import { RxHamburgerMenu } from "react-icons/rx";
 import $ from "jquery";
 import axios from "axios";
@@ -11,7 +11,7 @@ import ActiveTemplate from "./ActiveTemplate";
 import { ApiService } from "../services/ApiService";
 import { useForm } from "react-hook-form";
 import { useLocation } from "react-router-dom";
-import premium from "../assets/images/premium.webp";
+
 import { BiBookContent, BiFontFamily, BiLoaderAlt, BiX } from "react-icons/bi";
 import {
   HiOutlineSwitchHorizontal,
@@ -54,18 +54,23 @@ import "driver.js/dist/driver.css";
 import SpinnerLoader from "../components/shared-components/spinnerloader/SpinnerLoader";
 import SideNav from "../components/shared-components/SideNav";
 import { useReactToPrint } from "react-to-print";
-// Tour Steps
-import Step1 from "../assets/images/resume_tour_steps/step1.gif";
-import Step2 from "../assets/images/resume_tour_steps/step2.gif";
-import Step3 from "../assets/images/resume_tour_steps/step3.gif";
-import Step4 from "../assets/images/resume_tour_steps/step4.gif";
-import Step5 from "../assets/images/resume_tour_steps/step5.gif";
+
 
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { Tooltip } from "@mui/material";
-import loader from '../assets/images/triangleLoaderNoBg.gif'
+
 import { toast } from "react-toastify";
+
+const premium = "/images/premium.webp";
+// Tour Steps
+const Step1 = "/images/resume_tour_steps/step1.gif";
+const Step2 = "/images/resume_tour_steps/step2.gif";
+const Step3 = "/images/resume_tour_steps/step3.gif";
+const Step4 = "/images/resume_tour_steps/step4.gif";
+const Step5 = "/images/resume_tour_steps/step5.gif";
+const loader = '../assets/images/triangleLoaderNoBg.gif'
+const Logo = "/images/logo_resume.webp";
 
 const Header = () => {
   const resumePDF = useRef(null);

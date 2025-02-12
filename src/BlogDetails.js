@@ -7,16 +7,24 @@ import { useParams, useLocation } from "react-router-dom";
 import "react-awesome-slider/dist/styles.css";
 import axios from "axios";
 import LoadingSpiner from "./components/LoadingSpinner";
-import Ai from "./assets/images/Ai.webp";
-import thumbsup from "./assets/images/thumbsup.webp";
-import blog_banner_image from "./assets/images/blog_banner_image.webp";
-import shadeImage01 from "./assets/images/pattrens/01.webp";
-import shadeImage02 from "./assets/images/pattrens/02.webp";
-import shadeImage03 from "./assets/images/pattrens/03.webp";
+// import Ai from "/images/Ai.webp";
+// import thumbsup from "/images/thumbsup.webp";
+// import blog_banner_image from "/images/blog_banner_image.webp";
+// import shadeImage01 from "/images/pattrens/01.webp";
+// import shadeImage02 from "/images/pattrens/02.webp";
+// import shadeImage03 from "/images/pattrens/03.webp";
 import LazyLoadImageComp from "./components/lazyLoadImage/lazyLoadImage";
 import { useAuth } from "./services/Auth";
 import { ApiService } from "./services/ApiService";
 import { Helmet } from "react-helmet";
+
+const Ai = "/images/Ai.webp";
+const thumbsup = "/images/thumbsup.webp";
+const blog_banner_image = "/images/blog_banner_image.webp";
+const shadeImage01 = "/images/pattrens/01.webp";
+const shadeImage02 = "/images/pattrens/02.webp";
+const shadeImage03 = "/images/pattrens/03.webp";
+
 function Pages() {
   const { user } = useAuth();
   const current_page = useParams().page;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import placeholderImageUser from "../../../assets/images/reusme_placeholder_image.webp";
+const placeholderImageUser = "/images/reusme_placeholder_image.webp";
 
 import { LuLanguages } from "react-icons/lu";
 import { PiPencilLineLight } from "react-icons/pi";

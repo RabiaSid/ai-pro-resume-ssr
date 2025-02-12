@@ -4,10 +4,10 @@ import AllborderInputGroup from "../../../components/AllborderInputGroup";
 import swal from "sweetalert";
 import LoadingSpiner from "../../../components/LoadingSpinner";
 import { useNavigate } from "react-router-dom";
-import PlaceholderImage from "../../../assets/images/placeholder.webp";
 import { PiPencilBold } from "react-icons/pi";
 import { useAuth } from "../../../services/Auth";
 
+const PlaceholderImage = "/images/placeholder.webp";
 const CreatePage = () => {
   const { user } = useAuth();
   const [errors, setErrors] = useState(null);

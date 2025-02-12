@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import placeholderImageUser from "../../../assets/images/reusme_placeholder_image.webp";
+const placeholderImageUser = "/images/reusme_placeholder_image.webp";
 import Branding from "../../../components/Branding";
 
 const Template_31 = ({

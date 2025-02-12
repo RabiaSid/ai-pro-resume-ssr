@@ -8,12 +8,12 @@ import LoadingSpiner from "../../components/LoadingSpinner";
 import { PiPencilBold } from "react-icons/pi";
 import TextAreaGroup from "../../components/TextAreaGroup";
 import ToggleSwitch from "../../components/ToggleSwitch";
-import PlaceholderImage from "../../assets/images/placeholder.webp";
 import InputWithTextEditor from "../../components/InputWithTextEditer";
 import { useAuth } from "../../services/Auth";
 import RenderInputGroup from "../../components/AllborderInputGroup";
 import InputWithTextEditer from "../../components/InputWithTextEditer";
 
+const PlaceholderImage = "/images/placeholder.webp";
 const ShowBlog = () => {
   const { user } = useAuth();
   const location = useLocation();

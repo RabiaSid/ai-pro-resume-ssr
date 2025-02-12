@@ -6,10 +6,10 @@ import swal from "sweetalert";
 import LoadingSpiner from "../../components/LoadingSpinner";
 import { PiPencilBold } from "react-icons/pi";
 import TextAreaGroup from "../../components/TextAreaGroup";
-import PlaceholderImage from "../../assets/images/placeholder.webp";
 import InputWithTextEditor from "../../components/InputWithTextEditer";
 import { useAuth } from "../../services/Auth";
 
+const PlaceholderImage = "/images/placeholder.webp";
 const CreateOpenerSuggestion = () => {
   const { user } = useAuth();
   const navigate = useNavigate();

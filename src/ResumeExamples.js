@@ -16,10 +16,10 @@ import { useAuth } from "./services/Auth";
 import BannerComponent from "./components/BannerComponent";
 import $ from "jquery";
 import TemplatesSlider from "./components/shared-components/TemplatesSlider";
-import premium from "./assets/images/premium.webp";
 import OurFaqs from "./components/faq";
 import LazyLoadImageComp from "./components/lazyLoadImage/lazyLoadImage";
-import AltLazyLoader from "./assets/images/alt-lazy-loader.gif";
+
+const premium = "/images/premium.webp";
 
 function Pages() {
   const { user } = useAuth();

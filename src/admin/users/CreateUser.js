@@ -6,14 +6,14 @@ import swal from "sweetalert";
 import LoadingSpiner from "../../components/LoadingSpinner";
 import { PiPencilBold } from "react-icons/pi";
 import ToggleSwitch from "../../components/ToggleSwitch";
-import PlaceholderImage from "../../assets/images/placeholder.webp";
 import PasswordInputGroup from "../../components/PasswordInputGroup";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import axios from "axios";
 import { useAuth } from "../../services/Auth";
-
 import SelectDropdown from "../../components/SelectDropdown";
+
+const PlaceholderImage = "/images/placeholder.webp";
 const CreateUser = () => {
   const { user } = useAuth();
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 @media only screen and (max-width: 600px) {
   .res_shade {
-    background-image: url("../assets/images/blog_res_shade.webp");
+    background-image: url("../../public/images/blog_res_shade.webp");
     background-size: cover;
   }
   .slick__main__holder {
@@ -105,28 +105,28 @@
 }
 
 .dashboard {
-  background-image: url("../assets/images/dashboard_bg_image.webp");
+  background-image: url("../../public/images/dashboard_bg_image.webp");
   background-size: cover;
 }
 
 .bg_image {
-  background-image: url("../assets/images/pckg_cards.webp");
+  background-image: url("../../public/images/pckg_cards.webp");
   background-size: cover;
 }
 
 .image_bg_shade {
-  background-image: url("../assets/images/pckg_img_bg.webp");
+  background-image: url("../../public/images/pckg_img_bg.webp");
   background-size: cover;
 }
 
 .background_shade {
-  background-image: url("../assets/images/shadebanner.webp");
+  background-image: url("../../public/images/shadebanner.webp");
   background-size: cover;
 }
 
 @media only screen and (max-width: 600px) {
   .background_shade1 {
-    background-image: url("../assets/images/shade_banner-2.webp");
+    background-image: url("../../public/images/shade_banner-2.webp");
     background-size: cover;
   }
 }
@@ -671,7 +671,7 @@ input[type="number"] {
   height: 25px;
   border-radius: 50%;
   background-color: red;
-  background-image: url("../assets/images/check.webp");
+  background-image: url("../../public/images/check.webp");
   background-size: cover;
   display: inline-block;
   margin-right: 5px;
@@ -822,7 +822,7 @@ input[type="number"] {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-image: url("../assets/images/arrow_list.webp");
+  background-image: url("../../public/images/arrow_list.webp");
   background-size: cover;
   display: inline-block;
   margin-right: 10px;
@@ -833,7 +833,7 @@ input[type="number"] {
   text-align: left;
 }
 .bg-image {
-  background-image: url("../assets/images/temp_bg_1.webp");
+  background-image: url("../../public/images/temp_bg_1.webp");
   background-size: 100% 100%;
   background-position: left;
   background-repeat: no-repeat;
@@ -3015,7 +3015,7 @@ input[type="number"] {
 
 .about_us_background {
   position: relative;
-  background-image: url("../assets/images/background_abouts_us.webp");
+  background-image: url("../../public/images/background_abouts_us.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

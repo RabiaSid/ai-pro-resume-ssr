@@ -1,22 +1,22 @@
 import Modal from "@mui/material/Modal";
 import { Box } from "@mui/material";
-import AiChatBotIcon from "../../assets/images/robot.webp";
 import { ImCross } from "react-icons/im";
-import sendQuestion from "../../assets/images/Vector (1).webp";
-import bubblePoint from "../../assets/images/whiteBubbleLeft.webp";
-import BubbleRightPoint from "../../assets/images/rightBubblePoint.webp";
-import userAvatar from "../../assets/images/Avatar Photo.webp";
-import userAvatarInner from "../../assets/images/userAvataaar.webp";
-import onlineDot from "../../assets/images/Connect.webp";
 import { useEffect, useRef, useState } from "react";
 import CreateDocChat from "./CreateDocChat";
 import { useSelector } from "react-redux";
 import moment from "moment";
-import chatLoader from "../../assets/images/chatLoader5.gif";
 import { ApiService } from "../../services/ApiService";
 import { useDispatch } from "react-redux";
 import { updateChatBotResponse } from "../../redux-features/chatbot/chatBotSlice";
 
+const onlineDot = "/images/Connect.webp";
+const chatLoader = "/images/chatLoader5.gif";
+const AiChatBotIcon = "/images/robot.webp";
+const sendQuestion = "/images/Vector (1).webp";
+const bubblePoint = "/images/whiteBubbleLeft.webp";
+const BubbleRightPoint = "/images/rightBubblePoint.webp";
+const userAvatar = "/images/Avatar Photo.webp";
+const userAvatarInner = "/images/userAvataaar.webp";
 const AIChatBot = ({ open, setOpen }) => {
   const chatContainerRef = useRef(null);
 

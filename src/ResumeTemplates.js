@@ -21,13 +21,13 @@ import { CgTemplate } from "react-icons/cg";
 import { useCart } from "./data/CartStore";
 import { BsBoxSeamFill } from "react-icons/bs";
 import { GoChecklist } from "react-icons/go";
-import premium from "./assets/images/premium.webp";
 import { ApiService } from "./services/ApiService";
 import { set } from "date-fns";
 import OurFaqs from "./components/faq";
-import brand from "./assets/images/brand.webp";
 import LazyLoadImageComp from "./components/lazyLoadImage/lazyLoadImage";
 
+const premium = "/images/premium.webp";
+const brand = "/images/brand.webp";
 function Pages() {
   const { user } = useAuth();
   const { addToCart, cart, removeFromCart, clearCart } = useCart();

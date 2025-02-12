@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaEdit, FaTrashAlt, FaEye, FaShareAlt } from "react-icons/fa";
-import template1 from "../../assets/images/template1.webp"; // Default image
-import search_symbol from "../../assets/images/search_symbol.webp";
+
 import TemplatesSliderUser from "./TemplateSliderUser";
 import swal from "sweetalert";
 import axios from "axios";
@@ -20,6 +19,9 @@ import {
 import { HiClipboardCheck } from "react-icons/hi";
 import { LuPaintbrush, LuShare2 } from "react-icons/lu";
 import { ApiService } from "../../services/ApiService";
+
+const search_symbol = "/images/search_symbol.webp";
+const template1 = "/images/template1.webp"; // Default image
 const CoverLetterShow = ({ personalData }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { user } = useAuth();

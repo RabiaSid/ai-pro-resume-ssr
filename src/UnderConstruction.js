@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import banner_bg from "./assets/images/banner_bg.webp";
-import arrow_design_9 from "./assets/images/arrow_design_9.webp";
-import blue_text_bg_3 from "./assets/images/blue_text_bg_3.webp";
 import {
   BiLogoFacebook,
   BiLogoTwitter,
@@ -14,7 +11,10 @@ import "slick-carousel/slick/slick-theme.css";
 import "react-awesome-slider/dist/styles.css";
 import axios from "axios";
 
-import under_construction from "./assets/images/under_construction.webp";
+const banner_bg = "/images/banner_bg.webp";
+const arrow_design_9 = "/images/arrow_design_9.webp";
+const blue_text_bg_3 = "/images/blue_text_bg_3.webp";
+const under_construction = "/images/under_construction.webp";
 function UnderConstruction() {
   const [our_settings_random_blogs, set_our_settings_random_blogs] = useState(
     []

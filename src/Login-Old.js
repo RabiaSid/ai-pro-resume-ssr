@@ -1,6 +1,4 @@
-import fb_logo from "./assets/images/fb_logo.webp";
-import google_logo from "./assets/images/google_logo.webp";
-import linked from "./assets/images/link.webp";
+
 import React, { useEffect, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Link } from "react-router-dom";
@@ -21,7 +19,9 @@ import { ApiService } from "./services/ApiService";
 import { LinkedIn } from "react-linkedin-login-oauth2";
 // You can use provided image shipped by this package or using your own
 import linkedin from "react-linkedin-login-oauth2/assets/linkedin.png";
-
+const fb_logo = "/images/fb_logo.webp";
+const google_logo = "/images/google_logo.webp";
+const linked = "/images/link.webp";
 const cookie_data = () => {
   var email = $("#login_email").val();
   var password = $("#login_password").val();

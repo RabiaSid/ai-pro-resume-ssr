@@ -1,10 +1,11 @@
 import React from "react";
-import get_in_touch from "./assets/images/get_in_touch.webp";
+
 import Header from "./Header";
 import Footer from "./Footer";
 import "react-awesome-slider/dist/styles.css";
 import "./css/style2.css";
 
+const get_in_touch = "/images/get_in_touch.webp";
 function Policy() {
   return (
     <>

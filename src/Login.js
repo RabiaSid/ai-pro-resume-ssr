@@ -1,6 +1,4 @@
-import fb_logo from "./assets/images/fb_logo.webp";
-import google_logo from "./assets/images/google_logo.webp";
-import linked from "./assets/images/link.webp";
+
 import React, { useEffect, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Link } from "react-router-dom";
@@ -28,6 +26,9 @@ import { useAuth } from "./services/Auth";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
+const fb_logo = "/images/fb_logo.webp";
+const google_logo = "/images/google_logo.webp";
+const linked = "/images/link.webp";
 function Login() {
   const { setSession } = useAuth();
   const [verified, setVerified] = useState(false);

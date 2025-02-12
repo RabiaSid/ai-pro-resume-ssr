@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useCart } from "../data/CartStore";
 import { toast } from "react-toastify";
 import { useAuth } from "../services/Auth";
-import check from "../assets/images/check.webp";
+const check = "/images/check.webp";
 
 const PackageCard = ({
   id,

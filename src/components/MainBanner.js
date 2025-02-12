@@ -1,5 +1,6 @@
 import React from "react";
-import banner_bg from "../assets/images/banner_bg.webp";
+
+const banner_bg = "/images/banner_bg.webp";
 
 const MainBanner = ({ highlightText, descriptionText, startText, endText }) => {
   return (

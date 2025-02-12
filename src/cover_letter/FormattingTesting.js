@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef, Suspense } from "react";
-import Logo from "../assets/images/logo_resume.webp";
 import { RxHamburgerMenu } from "react-icons/rx";
 import $ from "jquery";
 import axios from "axios";
@@ -13,7 +12,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import swal from "sweetalert";
 import { useAuth } from "../services/Auth";
 import ActiveTemplate from "./ActiveTemplate";
-import premium from "../assets/images/premium.webp";
 import {
   BiBookContent,
   BiFontFamily,
@@ -67,30 +65,34 @@ import { FcSignature } from "react-icons/fc";
 import SideNav from "../components/shared-components/SideNav";
 import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
-import Capture1 from "../assets/images/cover_tour_steps/1.gif";
-import Capture2 from "../assets/images/cover_tour_steps/Signature.gif";
-import Capture3 from "../assets/images/cover_tour_steps/Template_Selection.gif";
-import Capture4 from "../assets/images/cover_tour_steps/Formatting.gif";
-import Capture5 from "../assets/images/cover_tour_steps/Theme_Selection.gif";
-import Capture6 from "../assets/images/cover_tour_steps/download.gif";
-
-import Template_16 from "../assets/images/cover_template_images/template_16.webp";
-import Template_17 from "../assets/images/cover_template_images/template_17.webp";
-import Template_18 from "../assets/images/cover_template_images/template_18.webp";
-import Template_19 from "../assets/images/cover_template_images/template_19.webp";
-import Template_20 from "../assets/images/cover_template_images/template_20.webp";
-import Template_21 from "../assets/images/cover_template_images/template_21.webp";
-import Template_22 from "../assets/images/cover_template_images/template_22.webp";
-import Template_23 from "../assets/images/cover_template_images/template_23.webp";
-import Template_24 from "../assets/images/cover_template_images/template_24.webp";
-import Template_25 from "../assets/images/cover_template_images/template_25.webp";
-import Template_26 from "../assets/images/cover_template_images/template_26.webp";
-import Template_27 from "../assets/images/cover_template_images/template_27.webp";
-import Template_28 from "../assets/images/cover_template_images/template_28.webp";
-import Template_29 from "../assets/images/cover_template_images/template_29.webp";
-import Template_30 from "../assets/images/cover_template_images/template_30.webp";
 import { Helmet } from "react-helmet";
 
+const premium = "/imag es/premium.webp";
+const Capture1 = "/images/cover_tour_steps/1.gif";
+const Capture2 = "/images/cover_tour_steps/Signature.gif";
+const Capture3 = "/images/cover_tour_steps/Template_Selection.gif";
+const Capture4 = "/images/cover_tour_steps/Formatting.gif";
+const Capture5 = "/images/cover_tour_steps/Theme_Selection.gif";
+const Capture6 = "/images/cover_tour_steps/download.gif";
+const Template_16 = "/images/cover_template_images/template_16.webp";
+const Template_17 = "/images/cover_template_images/template_17.webp";
+const Template_18 = "/images/cover_template_images/template_18.webp";
+const Template_19 = "/images/cover_template_images/template_19.webp";
+const Template_20 = "/images/cover_template_images/template_20.webp";
+const Template_21 = "/images/cover_template_images/template_21.webp";
+const Template_22 = "/images/cover_template_images/template_22.webp";
+const Template_23 = "/images/cover_template_images/template_23.webp";
+const Template_24 = "/images/cover_template_images/template_24.webp";
+const Template_25 = "/images/cover_template_images/template_25.webp";
+const Template_26 = "/images/cover_template_images/template_26.webp";
+const Template_27 = "/images/cover_template_images/template_27.webp";
+const Template_28 = "/images/cover_template_images/template_28.webp";
+const Template_29 = "/images/cover_template_images/template_29.webp";
+const Template_30 = "/images/cover_template_images/template_30.webp";
+
+
+
+const Logo = "/images/logo_resume.webp";
 const Header = () => {
   const { user } = useAuth();
   const location = useLocation();

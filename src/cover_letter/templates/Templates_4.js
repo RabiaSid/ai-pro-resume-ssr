@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import temp from "../../assets/images/temp.webp";
 import $ from "jquery";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -27,6 +26,8 @@ import {
 } from "react-icons/fa";
 import Skeleton from "react-loading-skeleton";
 
+
+const temp = "/images/temp.webp";
 const Header = (props) => {
   const { user } = useAuth();
   const handleDrag = (e, ui) => {

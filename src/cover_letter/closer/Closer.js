@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Tab } from "@headlessui/react";
 import $ from "jquery";
-import prof_img_def from "../../assets/images/avatar.webp";
 import SignatureCanvas from "react-signature-canvas";
 import {
   BiAlignLeft,
@@ -25,6 +24,7 @@ import Templates from "../Templates";
 import Loader from "../../Loader";
 import e from "cors";
 
+const prof_img_def = "/images/avatar.webp";
 const Closer = () => {
   const { user } = useAuth();
   const [check_loader, set_check_loader] = useState(0);

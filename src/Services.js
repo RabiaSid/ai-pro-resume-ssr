@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import arrow_design_7 from "./assets/images/arrow_design_7.webp";
+
 import Header from "./Header";
 import Footer from "./Footer";
 import "react-awesome-slider/dist/styles.css";
@@ -11,11 +11,13 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "./services/Auth";
 import ServicePageBanner from "./components/ServicePageBanner";
-import btn_arrow from "./assets/images/btn_arrow.webp";
-import pckg_img_bg from "./assets/images/pckg_img_bg.webp";
+
 import OurFaqs from "./components/faq";
 import LazyLoadImageComp from "./components/lazyLoadImage/lazyLoadImage";
 
+const arrow_design_7 = "/images/arrow_design_7.webp";
+const btn_arrow = "/images/btn_arrow.webp";
+const pckg_img_bg = "/images/pckg_img_bg.webp";
 const Services = () => {
   const { user } = useAuth();
   const [services, setServices] = useState([]);

@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { ApiService } from "./services/ApiService";
 import { useNavigate } from "react-router-dom";
 import TextAreaGroup from "./components/TextAreaGroup";
-import PackageImg from "./assets/images/free_basic_img.webp";
+// import PackageImg from "/images/free_basic_img.webp";
 import { useAuth } from "./services/Auth";
 import axios from "axios";
 import { driver } from "driver.js";
@@ -20,6 +20,8 @@ import "react-tippy/dist/tippy.css";
 import { TiArrowSortedDown } from "react-icons/ti";
 import Cookies from "js-cookie";
 import SpinnerLoader from "./components/shared-components/spinnerloader/SpinnerLoader.js";
+
+const PackageImg = "/images/free_basic_img.webp";
 
 const Cart = () => {
   const driverObj = driver();

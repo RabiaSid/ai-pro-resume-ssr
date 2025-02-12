@@ -4,10 +4,10 @@ import { ApiService } from "../../services/ApiService";
 import AllborderInputGroup from "../../components/AllborderInputGroup";
 import swal from "sweetalert";
 import LoadingSpiner from "../../components/LoadingSpinner";
-import PlaceholderImage from "../../assets/images/placeholder.webp";
 import FileInput from "../../components/FileInput";
 import { useAuth } from "../../services/Auth";
 
+const PlaceholderImage = "/images/placeholder.webp";
 const UpdateAdmin = () => {
   const { user } = useAuth();
   const location = useLocation();

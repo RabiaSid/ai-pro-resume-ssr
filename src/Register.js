@@ -1,6 +1,4 @@
-import fb_logo from "./assets/images/fb_logo.webp";
-import google_logo from "./assets/images/google_logo.webp";
-import linked from "./assets/images/link.webp";
+
 import React, { useEffect, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -29,6 +27,9 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { MenuItem, Select, InputLabel, FormControl } from "@mui/material";
 import Cookies from "js-cookie";
 
+const fb_logo = "/images/fb_logo.webp";
+const google_logo = "/images/google_logo.webp";
+const linked = "/images/link.webp";
 function Login() {
   const { setSession } = useAuth();
   const { reffered } = useParams();
@@ -615,9 +616,8 @@ function Login() {
                       name: "phone",
                       required: true, // Ensure the phone input is required
                     }}
-                    className={` ${
-                      errors?.phone ? "border-red-500 border" : " border-2"
-                    }  w-full leading-3 py-[14px] rounded-md px-[14px]`}
+                    className={` ${errors?.phone ? "border-red-500 border" : " border-2"
+                      }  w-full leading-3 py-[14px] rounded-md px-[14px]`}
                   />
                 )}
               />

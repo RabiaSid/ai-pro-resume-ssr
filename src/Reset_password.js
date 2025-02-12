@@ -1,4 +1,4 @@
-import loader1 from "./assets/images/loader1.gif";
+
 import React, { useState } from "react";
 import "./css/style2.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -10,6 +10,7 @@ import axios from "axios";
 import Header from "./Header";
 import Footer from "./Footer";
 
+const loader1 = "/images/loader1.gif";
 function Reset_password() {
   const location = useLocation();
   const navigate = useNavigate();

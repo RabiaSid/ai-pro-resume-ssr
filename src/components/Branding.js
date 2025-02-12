@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Logo from "../assets/images/logo_resume.webp";
 import { ApiService } from "../services/ApiService";
 import { useAuth } from "../services/Auth";
-
+const Logo = "/images/logo_resume.webp";
 function Branding({ bottom, left, right }) {
   const { user } = useAuth();
   const [packageDetail, setPackageDetail] = useState();

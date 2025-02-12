@@ -1,10 +1,11 @@
 import React from "react";
-import shadeImage01 from "../assets/images/pattrens/01.webp";
-import shadeImage02 from "../assets/images/pattrens/02.webp";
-import shadeImage03 from "../assets/images/pattrens/03.webp";
-import Ai from "../assets/images/Ai.webp";
-import thumbsup from "../assets/images/thumbsup.webp";
-import blog_banner_image from "../assets/images/blog_banner_image.webp";
+
+const shadeImage01 = "/images/pattrens/01.webp";
+const shadeImage02 = "/images/pattrens/02.webp";
+const shadeImage03 = "/images/pattrens/03.webp";
+const Ai = "/images/Ai.webp";
+const thumbsup = "/images/thumbsup.webp";
+const blog_banner_image = "/images/blog_banner_image.webp";
 
 export default function BlogBanner() {
   return (

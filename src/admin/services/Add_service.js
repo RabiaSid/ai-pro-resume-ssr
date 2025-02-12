@@ -5,11 +5,11 @@ import swal from "sweetalert";
 import LoadingSpiner from "../../components/LoadingSpinner";
 import { PiPencilBold } from "react-icons/pi";
 import ToggleSwitch from "../../components/ToggleSwitch";
-import PlaceholderImage from "../../assets/images/placeholder.webp";
 import { useAuth } from "../../services/Auth";
 import RenderInputGroup from "../../components/AllborderInputGroup";
 import InputWithTextEditer from "../../components/InputWithTextEditer";
 
+const PlaceholderImage = "/images/placeholder.webp";
 const ShowBlog = () => {
   const { user } = useAuth();
   const navigate = useNavigate();

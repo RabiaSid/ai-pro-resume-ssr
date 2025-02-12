@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import temp from "../assets/images/temp.webp";
-import prof_img_def from "../assets/images/avatar.webp";
 import Footer from "./Footer";
 import Progress from "./Progress";
 
@@ -14,6 +12,9 @@ import { BiCamera } from "react-icons/bi";
 import { useParams } from "react-router-dom";
 import Cookies from "js-cookie";
 import swal from "sweetalert";
+
+const temp = "/images/temp.webp";
+const prof_img_def = "/images/avatar.webp";
 
 const Header = ({ isOpen }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);

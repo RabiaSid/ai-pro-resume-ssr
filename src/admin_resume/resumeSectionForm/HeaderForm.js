@@ -17,11 +17,11 @@ import "react-phone-number-input/style.css";
 import $ from "jquery";
 import { ApiService } from "../../services/ApiService";
 import { LuPenLine } from "react-icons/lu";
-import resumePlaceholderImage from "../../assets/images/reusme_placeholder_image.webp";
 import citiesJson from "../../data/cities.json";
 import StatesJson from "../../data/states.json";
 import { RxCross2 } from "react-icons/rx";
 
+const resumePlaceholderImage = "/images/reusme_placeholder_image.webp";
 export const HeaderForm = (props) => {
   const {
     formHasError,

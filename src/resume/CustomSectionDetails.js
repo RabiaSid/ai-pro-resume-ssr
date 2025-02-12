@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import temp from "../assets/images/temp.webp";
-import prof_img_def from "../assets/images/avatar.webp";
 import Footer from "./Footer";
 import Templates from "./Templates";
 import Progress from "./Progress";
@@ -16,6 +14,8 @@ import swal from "sweetalert";
 import Skeleton from "react-loading-skeleton";
 import { useAuth } from "../services/Auth";
 
+const temp = "/images/temp.webp";
+const prof_img_def = "/images/avatar.webp";
 const Header = ({ isOpen }) => {
   const { user } = useAuth();
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);

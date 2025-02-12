@@ -6,9 +6,9 @@ import { ApiService } from "../../../../services/ApiService";
 import LoadingSpiner from "../../../../components/LoadingSpinner";
 import swal from "sweetalert";
 import { useAuth } from "../../../../services/Auth";
-import PlaceholderImage from "../../../../assets/images/placeholder.webp";
 import { PiPencilBold } from "react-icons/pi";
 
+const PlaceholderImage = "/images/placeholder.webp";
 const Closer = ({
   // Header Data
   name,

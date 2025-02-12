@@ -3,21 +3,11 @@ import axios from "axios";
 import { Link, useParams, useLocation } from "react-router-dom";
 import { useAuth } from "../services/Auth";
 import { ApiService } from "../services/ApiService";
-import shadeImage01 from "../assets/images/pattrens/01.webp";
-import shadeImage02 from "../assets/images/pattrens/02.webp";
-import shadeImage03 from "../assets/images/pattrens/03.webp";
-import free_premium from "../assets/images/free_premium.webp";
-import ATS_freindly from "../assets/images/ATS_freindly.webp";
-import hidden_fee from "../assets/images/hidden_fee.webp";
-import professional_resume from "../assets/images/professional_resume.webp";
+
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import StepsCard from "../components/shared-components/StepsCard";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Doughnut } from "react-chartjs-2";
-import step_1 from "../assets/images/step_1.webp";
-import step_2 from "../assets/images/step_2.webp";
-import step_3 from "../assets/images/step_3.webp";
-import step_4 from "../assets/images/step_4.webp";
 import { Tab } from "@headlessui/react";
 import MyTransactionsRewamp from "../MyTransactionsRewamp";
 import MyServicesRewamped from "../MyServicesRewamped";
@@ -26,6 +16,18 @@ import Footer from "../Footer";
 import { FaRegFileLines } from "react-icons/fa6";
 import { FaFileExport } from "react-icons/fa6";
 import { BsSpellcheck } from "react-icons/bs";
+
+const shadeImage01 = "/images/pattrens/01.webp";
+const shadeImage02 = "/images/pattrens/02.webp";
+const shadeImage03 = "/images/pattrens/03.webp";
+const free_premium = "/images/free_premium.webp";
+const ATS_freindly = "/images/ATS_freindly.webp";
+const hidden_fee = "/images/hidden_fee.webp";
+const professional_resume = "/images/professional_resume.webp";
+const step_1 = "/images/step_1.webp";
+const step_2 = "/images/step_2.webp";
+const step_3 = "/images/step_3.webp";
+const step_4 = "/images/step_4.webp";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 

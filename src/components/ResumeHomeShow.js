@@ -3,11 +3,12 @@ import { useAuth } from "../services/Auth";
 import axios from "axios";
 
 import Slider from "react-slick";
-import premium from "../assets/images/premium.webp";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ApiService } from "../services/ApiService";
-import brand from "../assets/images/brand.webp";
+
+const premium = "/images/premium.webp";
+const brand = "/images/brand.webp";
 
 const ResumeHomeShow = () => {
   const { user } = useAuth();

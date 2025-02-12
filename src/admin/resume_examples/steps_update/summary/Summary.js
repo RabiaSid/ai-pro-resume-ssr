@@ -19,7 +19,6 @@ import SelectDropdown from "../../../../components/SelectDropdown";
 import DropdownWithIdValue from "../../../../components/DropdownWithIdValue";
 import ToggleSwitch from "../../../../components/ToggleSwitch";
 import { useAuth } from "../../../../services/Auth";
-import PlaceholderImage from "../../../../assets/images/placeholder.webp";
 import { PiPencilBold } from "react-icons/pi";
 import citiesJson from "../../../../data/cities.json";
 import StatesJson from "../../../../data/states.json";
@@ -41,6 +40,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 
 const animatedComponents = makeAnimated();
 
+const PlaceholderImage = "/images/placeholder.webp";
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 

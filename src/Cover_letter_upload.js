@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import arrow_design_7 from "./assets/images/arrow_design_7.webp";
-import CoverLetterImg from "./assets/images/cover_letter_1.webp";
+// import arrow_design_7 from "/images/arrow_design_7.webp";
+// import CoverLetterImg from "/images/cover_letter_1.webp";
 import { BsFileEarmarkArrowUp } from "react-icons/bs";
 import { useState } from "react";
 import { useCart } from "./data/CartStore.js";
@@ -12,6 +12,8 @@ import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./services/Auth.jsx";
 import MainBanner from "./components/MainBanner.js";
+const arrow_design_7 = "/images/arrow_design_7.webp";
+const CoverLetterImg = "/images/cover_letter_1.webp";
 
 const Cover_letter_upload = () => {
   const { user } = useAuth();
@@ -130,8 +132,8 @@ const Cover_letter_upload = () => {
                 <button
                   disabled={coverLetter ? false : uploadprogress ? true : false}
                   className={`${!coverLetter
-                      ? "bg-gray-500 cursor-not-allowed"
-                      : "bg-primary hover:bg-[#0073b1cc]"
+                    ? "bg-gray-500 cursor-not-allowed"
+                    : "bg-primary hover:bg-[#0073b1cc]"
                     } sm:w-fit text-base font-bold text-white px-20 py-4 rounded-full `}
                   onClick={handleUploadServiceFile}
                 >

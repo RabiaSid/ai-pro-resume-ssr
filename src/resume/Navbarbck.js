@@ -14,12 +14,12 @@ import $ from "jquery";
 import axios from "axios";
 import { useCart } from "../data/CartStore";
 import { Link, useNavigate } from "react-router-dom";
-import coin from "../assets/images/dollar.webp";
 import { ApiService } from "../services/ApiService";
 import { title } from "process";
 import { useAuth } from "../services/Auth";
-import Logo from "../assets/images/logo_resume.webp";
 
+const coin = "/images/dollar.webp";
+const Logo = "/images/logo_resume.webp";
 function Header({ handleSideBarToggle, checkOpen }) {
   const links = [
     { href: "/account", label: "Profile" },
